@@ -7,7 +7,7 @@
   color:black;
     }
     body{
-      background-image: url('/static/grievance/images/back5.jpg')
+      
     }
 </style>
 
@@ -23,17 +23,17 @@
                 </div>
          {% endfor %}
          {% endif %}
-      <div style="padding: 20px;background-color: lightgray;margin-top: 10%;margin-bottom: 10%;border-radius: 15px;text-align: center;">
+      <div style="padding: 20px;background-color: rgb(231, 231, 231);margin-top: 10%;margin-bottom: 10%;border-radius: 10px;border: 1px solid royalblue;text-align: center;">
         <div style="padding: 10px;">
-      <h2 style="padding: 15px;background-color: royalblue;color: white;">Student Login:</h2><hr>
+      <h2 style="padding: 20px;font-weight: bold;border-bottom: 2px solid royalblue;">Student Login:</h2><br>
            <form method="POST">
              
              <div style="text-align: left;">
              {% csrf_token %}
              {{form|crispy}}
              <a href='{% url 'password_reset' %}'>Forgot your Password?</a><br>
-         </div>
-             <button type="submit" class="button button2" style="background-color:royalblue;">Login</button><br>  <br>
+         </div><br>
+             <button type="submit" class="button button2" style="background-color:royalblue;border-radius: 5px;">Login</button><br>  <br>
          </form>
          <small class='text-muted'>Don't have an acoount? You can create one in just few steps.</small> <a href={% url "studentRegister" %}>Create Account</a>
         </div>
