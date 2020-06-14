@@ -91,12 +91,16 @@ html { font-size: 1rem;}
 @media (min-width: 1200px) {
     .kit { font-size: 1.5rem; }
 }
+
+.navbar{
+  background-color: rgb(57, 120, 255)
+}
 </style>
 
 
 </head>
 <body>
-  <nav class="navbar  navbar-dark sticky-top static-top" style="background-color: rgb(57, 120, 255);border-bottom: 2px solid darkgrey;">
+  <nav class="navbar  navbar-dark sticky-top static-top" style="border-bottom: 2px solid darkgrey;">
     <div class="container">
       <a class="navbar-brand" href={% url 'home' %}>
             <h4 style="padding-top: 5px;font-weight: bold;">Complain<span style="color:red">X</span></h4>
@@ -145,18 +149,14 @@ html { font-size: 1rem;}
     
       <!-- Copyright -->
     
-    {% block content %}{% endblock content %}
-    <footer class="page-footer font-small cyan darken-3" style="text-align: center;margin-top: 30px;">
+    {% block content %}
+    {% endblock content %}
 
-      <!-- Grid row-->
-  
-    
-    <!-- Footer Elements -->
-  
-    <!-- Copyright -->
+    <!-- <footer class="page-footer font-small cyan darken-3" style="text-align: center;margin-top: 30px;">
     <div class="footer-copyright text-center py-3" style="background-color: rgb(179, 179, 179);">
       <span>ComplainX </span><sup>&copy;</sup>
     </div>
   </footer> 
+   -->
 </body>
 </html>

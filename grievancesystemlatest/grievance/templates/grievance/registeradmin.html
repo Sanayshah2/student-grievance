@@ -7,12 +7,15 @@
   background-color: lightgray;
   color:black;
     }
-    body{
-    background-image: url('/static/grievance/images/back7.png')
-  }
+
+    .navbar{
+   background-color: rgb(99, 22, 22);
+ }    
 </style>    
 <div class="container">
-       {% if messages %}
+  <div class="row justify-content-center">
+    <div class='col-12 col-md-8'>
+        {% if messages %}
         {% for x in messages %}
                 <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -21,16 +24,19 @@
                 </div>
          {% endfor %}
          {% endif %}
-         <div class=" col-md-offset-3 col-md-6 button1" style="font-family: 'Times New Roman', Times, serif;background-color: lightgrey;padding: 30px;margin-top: 3%;margin-bottom: 3%;text-align: center;">
-      <h2 style="padding: 15px;background-color:  rgb(241, 41, 41);color: white;">Admin Signup:</h2><hr>
+         <div class="button1" style="background-color: rgb(231, 231, 231);padding: 30px;margin-top: 10%;margin-bottom:10%;text-align: center;border-radius: 10px;border: 1px solid  rgb(241, 41, 41);">
+      <h2 style="padding: 15px;border-bottom: 2px solid rgb(241, 41, 41);font-weight: bold;">Admin Signup:</h2><br>
         <form method="POST">
             <div style="text-align: left;">
             {% csrf_token %}
             {{form|crispy}}
             </div>
-            <button type="submit" class="button button2" style="background-color: rgb(241, 41, 41);">Sign up</button><br><br>
-            <small class="text-muted">Already registered? </small> <a href={% url "loginAdmin" %}>Admin Log In</a>
-        </form>
+            <button type="submit" class="button button2" style="background-color: rgb(241, 41, 41); border-radius: 5px;">Sign up</button><br><br>
+            </form>
+            <small class="text-muted">Already registered? </small> <a href={% url "loginAdmin" %}  style="color: rgb(241, 41, 41);">Admin Log In</a>
     </div>
 </div>
+</div>
+</div>
+
 {% endblock content %}
