@@ -66,7 +66,7 @@ div.content {
   }
 }
 </style>
-<div class="" style="font-family: 'Times New Roman', Times, serif;">
+<div class="" style="">
   <div class="sidebar">
       <h2 >Welcome, {{user.first_name}} {{user.last_name}}!</h2>
       <a  href={% url 'studentdashboard' %}>Student Dashboard</a>
@@ -86,8 +86,9 @@ div.content {
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" style='color: black'>Log Out</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
                   </div>
                   <div class="modal-body" style='color: black'>
                       Are you sure you want to Log Out?

@@ -1,32 +1,19 @@
 <html>
     <head>
         <title>Grievance system</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-
-        <!-- Latest compiled and minified CSS -->
-     <meta charset="utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-        
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <style>
        .button {
   background-color:palevioletred; /* Green */
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 8px 20px ;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -43,14 +30,111 @@
 .button1 {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
+@keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+@-webkit-keyframes fadeInUp {
+    from {
+        transform: translate3d(0,40px,0)
+    }
+
+    to {
+        transform: translate3d(0,0,0);
+        opacity: 1
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both
+}
+
+.animatedFadeInUp {
+    opacity: 0
+}
+
+.fadeInUp {
+    opacity: 0;
+    animation-name: fadeInUp;
+    -webkit-animation-name: fadeInUp;
+}
 body{
     background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+html { font-size: 1rem;}
+@media (min-width: 200px){
+  .kit{ font-size: 1.15rem; }
+
+}
+@media (min-width: 576px) {
+    .kit{ font-size: 1.3rem; }
+}
+@media (min-width: 768px) {
+    .kit { font-size: 1.5rem; }
+}
+@media (min-width: 992px) {
+    .kit { font-size: 1.5rem; }
+}
+@media (min-width: 1200px) {
+    .kit { font-size: 1.5rem; }
 }
 </style>
 
 
 </head>
 <body>
+  <nav class="navbar  navbar-dark sticky-top static-top" style="background-color: rgb(57, 120, 255);border-bottom: 2px solid darkgrey;">
+    <div class="container">
+      <a class="navbar-brand" href={% url 'home' %}>
+            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span style="color:red">X</span></h4>
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;">
+            <span class="navbar-toggler-icon" style="color: "></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav sm-auto">
+          <li class="nav-item ">
+            <a class="nav-link" >Home
+                  <span class="sr-only">(current)</span>
+                </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >India</a>
+          </li>
+          <!--<li class="nav-item">
+            <a class="nav-link" href=>Map</a>
+          </li>-->
+          <li class="nav-item">
+            <a class="nav-link" >Helpline (States)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >Essential Services (Mumbai, Maharashtra)</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" }>Health Advisory</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >About</a>
+          
+          
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
     <!--<div class="col-md-6 col-md-offset-3">
     {% if messages %}
     {% for x in messages %}
@@ -58,6 +142,21 @@ body{
      {% endfor %}
      {% endif %}
     </div>-->
+    
+      <!-- Copyright -->
+    
+    </footer>
     {% block content %}{% endblock content %}
+    <footer class="page-footer font-small cyan darken-3" style="text-align: center;margin-top: 30px;">
+
+      <!-- Grid row-->
+  
+    
+    <!-- Footer Elements -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3" style="background-color: rgb(179, 179, 179);">
+      <span>ComplainX </span><sup>&copy;</sup>
+    </div>
 </body>
 </html>
