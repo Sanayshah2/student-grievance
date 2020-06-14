@@ -99,7 +99,7 @@ html { font-size: 1rem;}
   <nav class="navbar  navbar-dark sticky-top static-top" style="background-color: rgb(57, 120, 255);border-bottom: 2px solid darkgrey;">
     <div class="container">
       <a class="navbar-brand" href={% url 'home' %}>
-            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span style="color:red">X</span></h4>
+            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span style="color:red;font-style: italic">X</span></h4>
           </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;">
             <span class="navbar-toggler-icon" style="color: "></span>
@@ -146,7 +146,7 @@ html { font-size: 1rem;}
       <!-- Copyright -->
     
     {% block content %}{% endblock content %}
-    <footer class="page-footer font-small cyan darken-3" style="text-align: center;margin-top: 30px;">
+    <footer class="page-footer font-small cyan darken-3 sticky-bottom" style="text-align: center;margin-top: 30px;">
 
       <!-- Grid row-->
   
