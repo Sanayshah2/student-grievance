@@ -28,8 +28,8 @@
       <div class="col-12 col-md-6"><p class=""><span style="font-weight: bold;">Branch: </span>{{a.branch}}.</p></div>
   </div>
   <div class="row">
-      <div class=" col-6"><p ><span style="font-weight: bold;">Total Complaints: </span>{{tcomplains}}.</p></div>
-      <div class="col-6 "><p class=""><span style="font-weight: bold;">Solved Complaints: </span>{{scomplains}}.</p></div>
+      <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Total Complaints: </span>{{tcomplains}}.</p></div>
+      <div class="col-12 col-md-6 "><p class=""><span style="font-weight: bold;">Solved Complaints: </span>{{scomplains}}.</p></div>
   </div>
   <div class="row" style="">
       <div class=" col-12"><p ><span style="font-weight: bold;">Rejected Complaints: </span>{{rcomplains}}.</p></div>
@@ -37,7 +37,7 @@
   </div>
   <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
   
-  <a href='{% url 'student_editprofile' %}' >Edit Profile</a><a href='myModal6969' data-toggle="modal" data-target="#myModal6969">Delete Account</a><a  href='{% url 'password_change' %}'>Change Password</a>
+  <span><a href='{% url 'student_editprofile' %}' style="margin-right:20px">Edit Profile</a><a style="margin-right:20px" href='myModal6969' data-toggle="modal" data-target="#myModal6969">Delete Account</a><a  href='{% url 'password_change' %}'>Change Password</a><span>
 </div>
 
 {% endblock %}
