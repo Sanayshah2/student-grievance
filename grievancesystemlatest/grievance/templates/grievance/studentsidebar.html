@@ -22,7 +22,7 @@
   font-size: 18px;
   
 }
-.sidebar h2 {
+.sidebar h4 {
   display: block;
   color: white;
   padding: 15px;
@@ -80,7 +80,7 @@ div.content {
 </style>
 <div class="" style="">
   <div class="sidebar">
-      <h2 >Welcome, {{user.first_name}} {{user.last_name}}!</h2>
+      <h4 >Welcome, {{user.first_name}} {{user.last_name}}!</h4>
       <a  href={% url 'studentdashboard' %}>Dashboard</a>
       <a href={% url "addComplain" %}>Add complain</a>
       <a href={% url "previousComplaints" %}>Complaint History</a>

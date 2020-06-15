@@ -17,14 +17,14 @@
       
 <div class="content">
  
-  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-    <h3  style="font-weight: bold;animation-delay: 0.1s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complain History</h2>
-    <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.1s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+  <div >
+    <h2  style="font-weight: bold;animation-delay: 0.1s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complain History</h2>
+    <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.1s;margin-bottom: 60px;" class="animated animatedFadeInUp fadeInUp"></div>
     {% if complains %}
   
-  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.2s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
     {% for p in complains %}
-    <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
+    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
       <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
       <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
         {% if p.status == 'Solved' %}
@@ -40,8 +40,8 @@
     {% endfor %}
   </div>
     {% else %}
-    <div style="padding-bottom: 10px;">
-      <p>No Complains</p>
+    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.4s;">
+      <p class='text-muted'>No Complains to display</p>
 
     </div>
   {% endif %}

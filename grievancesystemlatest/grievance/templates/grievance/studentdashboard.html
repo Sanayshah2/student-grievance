@@ -17,15 +17,13 @@
         
          
         {% if messages %}
-        <div class="container">
         {% for x in messages %}
-                <div class="alert alert-custom  fade in alert-dismissable show container" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="font-size:20px">×</span>
                   </button><center>{{x}}</center>
                 </div>
          {% endfor %}
-        </div>   
      {% endif %}
     
     <div >
@@ -72,7 +70,7 @@ time: 1000,
             
             <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
               {% for p in scomplains %}
-              <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
+              <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
                 <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
                 <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: green;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -80,8 +78,8 @@ time: 1000,
               {% endfor %}
             </div>
               {% else %}
-              <div style="padding-bottom: 10px;">
-                <p>No Complains</p>
+              <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+                <p class='text-muted'>No Complains to display</p>
 
               </div>
             {% endif %}
@@ -96,7 +94,7 @@ time: 1000,
           
           <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
             {% for p in rcomplains %}
-            <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
+            <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
               <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
               <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: red;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -104,8 +102,8 @@ time: 1000,
             {% endfor %}
           </div>
             {% else %}
-            <div style="padding-bottom: 10px;">
-              <p>No Complains</p>
+            <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+              <p class='text-muted'>No Complains to display</p>
 
             </div>
           {% endif %}
@@ -120,7 +118,7 @@ time: 1000,
         
         <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
           {% for p in vcomplains %}
-          <div style="margin-bottom: 20px;border-bottom: 1px solid lightgray;padding-bottom: 20px">
+          <div style="margin-bottom: 10px;border-bottom: 1px solid lightgray;padding-bottom: 10px">
             <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
             <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="font-weight: bold;">{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -128,8 +126,8 @@ time: 1000,
           {% endfor %}
         </div>
           {% else %}
-          <div style="padding-bottom: 10px;">
-            <p>No Complains</p>
+          <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+            <p class='text-muted'>No Complains to display</p>
 
           </div>
         
@@ -144,7 +142,7 @@ time: 1000,
       
       <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in pcomplains %}
-        <div style="padding-bottom: 20px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
+        <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
           <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
           <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="font-weight: bold;">{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -152,8 +150,8 @@ time: 1000,
         {% endfor %}
       </div>
         {% else %}
-        <div style="padding-bottom: 10px;">
-          <p>No Complains</p>
+        <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+          <p class='text-muted'>No Complains to display</p>
 
         
       </div>
