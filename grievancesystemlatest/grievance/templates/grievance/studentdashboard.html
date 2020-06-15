@@ -3,57 +3,31 @@
 {% load static %}
 {% block content %}
 {% include 'grievance/studentsidebar.html' %}
-<style>
 
-  table {
-  font-family: 'Times New Roman', Times, serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td, th {
-border: 1px solid #dddddd;
-text-align: left;
-padding: 8px;
-letter-spacing: 0.5px
-}
-
-tr:nth-child(even) {
-  background-color: lightgray;
-  color: black;
-}
-tr:nth-child(odd) {
-  background-color: white;
-  color: black;
-}
-  img{
-    width: 150px;
-    height: 150px;
-  }
-
-</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.min.js" integrity="sha256-JtQPj/3xub8oapVMaIijPNoM0DHoAtgh/gwFYuN5rik=" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js" integrity="sha256-jDnOKIOq2KNsQZTcBTEnsp76FnfMEttF6AV2DF2fFNE=" crossorigin="anonymous"></script>
         
 
-        
+ 
         
 
       <!-- Page content -->
-      <div class="content container">
+      <div class="content ">
+        <div class="container">
+          
+        {% if messages %}
+        {% for x in messages %}
+                <div class="alert alert-custom  fade in alert-dismissable show container" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true" style="font-size:20px">×</span>
+                  </button><center>{{x}}</center>
+                </div>
+         {% endfor %}
+     {% endif %}
         <h2  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Student Dashboard</h2>
         <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;" class="animated animatedFadeInUp fadeInUp"></div>
-            {% if messages %}
-                {% for x in messages %}
-                        <div class="alert alert-custom  fade in alert-dismissable show container" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true" style="font-size:20px">×</span>
-                          </button><center>{{x}}</center>
-                        </div>
-                 {% endfor %}
-             {% endif %}
-         
+           
 
  
             <div class="" style="padding-top: 20px;">
@@ -145,5 +119,6 @@ tr:nth-child(odd) {
 
       </div>
     </div> 
+</div>
 </div>
 {% endblock content %}
