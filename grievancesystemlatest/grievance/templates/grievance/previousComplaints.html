@@ -3,30 +3,7 @@
 {% block content %}
 {% include 'grievance/studentsidebar.html' %}
 <style>
-table {
-  font-family: 'Times New Roman', Times, serif;
-  border-collapse: collapse;
-  width: 100%;
-}
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-  letter-spacing: 0.5px
-  
-  
-}
-    
-
-tr:nth-child(even) {
-  background-color: lightgray;
-  color: black;
-}
-tr:nth-child(odd) {
-  background-color: white;
-  color: black;
-}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -40,37 +17,38 @@ tr:nth-child(odd) {
       
 <div class="content">
  
-    <div class="container " style="padding-top: 20px;">
-      <h3 class="container" style="margin-top: 15px;margin-bottom: 40px;padding-left: 10px;border-left: 5px solid black;color: royalblue;font-weight: bold;font-family: 'Times New Roman', 'Times', serif;">COMPLAIN HISTORY</h2>
-        <table class="button1">
-        <tr style="color: white;background-color: royalblue;">
-          <th style="padding: 10px;font-size: 20px;">Complain title</th>
-          <th style="padding: 10px;font-size: 20px;">To</th>
-          <th style="padding: 10px;font-size: 20px;">Posted On</th>
-          <th style="padding: 10px;font-size: 20px;">View details</th>
-          <th style="padding: 20px;font-size: 20px;">Status</th>
-          
-        </tr>
-        {% if complains %}
-        {% for c in complains %}
-        <tr>
-          <td><p style="font-size: 15px;font-weight: bold;">{{c.complain_heading}}</p></td>
-          <td><p style="font-size: 15px;">{{c.branch}} Department, {{c.college}}</p></td>
-          <td><p style="font-size: 15px;">{{c.date_posted|date:"M d, Y"}}</p></td>
-          <td><a href="/studentComplainView/{{c.id}}/">View</a></td>
-          <td><p style="font-size: 15px;font-weight: bold;">{{c.status}}</p></td>
-        </tr>
-        {% endfor %}
+  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+    <h3  style="font-weight: bold;animation-delay: 0.1s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complain History</h2>
+    <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.1s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    {% if complains %}
+  
+  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.2s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in complains %}
+    <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
+      <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
+        {% if p.status == 'Solved' %}
+        <span style="color: green;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'Rejected' %}
+        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
         {% else %}
-                  <tr >
-                      <td colspan="5"><center><p class='text-muted'>No Complains to display</p></center></td>
-                  </tr>
-            {% endif %}    
-            
-        
-      </table>
-    </div>  
+        <span style="font-weight: bold;" >{{p.status}}</span>
+        {% endif %}
+        <span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
+    </div>
+    {% endfor %}
+  </div>
+    {% else %}
+    <div style="padding-bottom: 10px;">
+      <p>No Complains</p>
+
+    </div>
+  {% endif %}
+
+  
+
+</div>
 
    
     
