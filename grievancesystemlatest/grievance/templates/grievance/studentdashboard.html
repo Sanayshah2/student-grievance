@@ -43,7 +43,7 @@
               {% for p in scomplains %}
               <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
                 <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
-                <small>{{p.date_posted|date:"M d, Y"}} |<span style="color: green;">  {{p.status}}   </span>|<span> <a href="/studentComplainView/{{p.id}}/">  View</a></span></small>
+                <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: green;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
               </div>
               {% endfor %}
@@ -67,7 +67,7 @@
             {% for p in rcomplains %}
             <div style="padding-bottom: 10px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
               <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
-              <small>{{p.date_posted|date:"M d, Y"}} |<span style="color: red;">  {{p.status}}   </span>|<span> <a href="/studentComplainView/{{p.id}}/">  View</a></span></small>
+              <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: red;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
             </div>
             {% endfor %}
@@ -91,7 +91,7 @@
           {% for p in vcomplains %}
           <div style="margin-bottom: 20px;border-bottom: 1px solid lightgray;padding-bottom: 20px">
             <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
-            <small>{{p.date_posted|date:"M d, Y"}} |<span style="color: royalblue;">  {{p.status}}   </span>|<span> <a href="/studentComplainView/{{p.id}}/">  View</a></span></small>
+            <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
           </div>
           {% endfor %}
@@ -115,7 +115,7 @@
         {% for p in pcomplains %}
         <div style="padding-bottom: 20px;margin-bottom: 20px;border-bottom: 1px solid lightgray;">
           <h4 style="font-weight: bold;">{{p.complain_heading}}</h4>
-          <small>{{p.date_posted|date:"M d, Y"}} |<span >  {{p.status}}   </span>|<span> <a href="/studentComplainView/{{p.id}}/">  View</a></span></small>
+          <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
         </div>
         {% endfor %}
