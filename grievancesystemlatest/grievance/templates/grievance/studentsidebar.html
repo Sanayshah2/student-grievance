@@ -20,24 +20,27 @@
   padding: 16px;
   text-decoration: none;
   font-size: 18px;
+  
 }
 .sidebar h2 {
   display: block;
   color: white;
   padding: 15px;
-  background-color: royalblue;
+  background-color: rgb(57, 120, 255);;
 }
 
 /* Active/current link */
 .sidebar a.active {
-  background-color:royalblue;
+  background-color:rgb(57, 120, 255);;
   color: white;
+  
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
   background-color: rgb(40, 140, 255);
   color: white;
+  
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -62,7 +65,7 @@ div.content {
     background-color: whitesmoke;
     border-radius: 8px;
     font-size: 12px;
-    margin:10px;
+    margin:5px;
     }
   div.content {margin-left: 0;}
 }
@@ -78,9 +81,9 @@ div.content {
 <div class="" style="">
   <div class="sidebar">
       <h2 >Welcome, {{user.first_name}} {{user.last_name}}!</h2>
-      <a  href={% url 'studentdashboard' %}>Student Dashboard</a>
-      <a href={% url "addComplain" %}>Add new complain</a>
-      <a href={% url "previousComplaints" %}>Previous Complaints</a>
+      <a  href={% url 'studentdashboard' %}>Dashboard</a>
+      <a href={% url "addComplain" %}>Add complain</a>
+      <a href={% url "previousComplaints" %}>Complaint History</a>
         <a href={% url "password_change" %}>Change Password</a>
       <a href={% url "studentProfileView" %}>My Profile</a>
       <a href='myModal6969' data-toggle="modal" data-target="#myModal6969">Delete Account</a>
