@@ -47,7 +47,7 @@
 div.content {
   margin-left: 200px;
   padding: 1px 16px;
-  height: 1000px;
+  
 }
 
 /* On screens that are less than 700px wide, make the sidebar into a topbar */
@@ -56,20 +56,26 @@ div.content {
     width: 100%;
     height: auto;
     position: relative;
+    background-color:white;
   }
+  .sidebar a {
+    float: left;
+    padding: 10px;
+    border:1px solid red;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    font-size: 12px;
+    margin:5px;
+    }
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
 }
 
 /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
-@media screen and (max-width: 400px) {
-  .sidebar a {
-    text-align: center;
-    float: none;
-  }
+
 }
 </style>
-<div class="" style="font-family: Perpetua;">
+<div class="" >
 
     <div class="sidebar">
         <h2 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h2>

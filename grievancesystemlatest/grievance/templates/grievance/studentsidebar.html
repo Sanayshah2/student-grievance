@@ -38,8 +38,9 @@
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: rgb(40, 140, 255);
-  color: white;
+  background-color: white;
+  color: rgb(64, 147, 255);
+  
   
 }
 
@@ -62,7 +63,8 @@ div.content {
     float: left;
     padding: 10px;
     border:1px solid rgb(64, 147, 255);
-    background-color: whitesmoke;
+    background-color:rgb(64, 147, 255) ;
+    color: white;
     border-radius: 8px;
     font-size: 12px;
     margin:5px;
@@ -77,6 +79,7 @@ div.content {
 <div class="" style="">
   <div class="sidebar">
       <h4 >Welcome, {{user.first_name}} {{user.last_name}}!</h4>
+      
       <a  href={% url 'studentdashboard' %}>Dashboard</a>
       <a href={% url "addComplain" %}>Add complain</a>
       <a href={% url "previousComplaints" %}>Complaint History</a>
