@@ -33,8 +33,8 @@
 
 /* Active/current link */
 .sidebar a.active {
-  background-color:palevioletred;
-  color: white;
+  background-color: whitesmoke;
+  color: red;
 }
 
 /* Links on mouse-over */
@@ -62,12 +62,22 @@ div.content {
     float: left;
     padding: 10px;
     border:1px solid red;
-    background-color: red;
-    color: white;
+    background-color: whitesmoke;
+    color: red;
     border-radius: 8px;
     font-size: 12px;
     margin:5px;
     }
+    /* Links on mouse-over */
+.sidebar a:hover:not(.active) {
+  background-color: red;
+  color: white;
+}
+/* Active/current link */
+.sidebar a.active {
+  background-color: red;
+  color: white;
+}
   .sidebar a {float: left;}
   div.content {margin-left: 0;}
 }
@@ -80,8 +90,9 @@ div.content {
 
     <div class="sidebar">
         <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
-        <a  href={% url 'admindashboard' %}>Admin Dashboard</a>
-        <a href={% url 'adminProfileView' %}>My Profile</a>
+        <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Admin Dashboard</a>
+        <a  href={% url 'complain_history' %} class='{{admin_complains_active}}'>Complain History</a>
+        <a href={% url 'adminProfileView' %} class='{{admin_profile_active}}'>My Profile</a>
 
         <a  href='myModal69' data-toggle="modal" data-target="#myModal69">Log Out</a>
       </div>

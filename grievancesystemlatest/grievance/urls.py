@@ -14,6 +14,7 @@ urlpatterns = [
     path('admin/admindashboard/',views.admindashboard,name='admindashboard'),
     path('admin/admindashboard/profile/',views.adminProfileView,name='adminProfileView'),
     path('adminComplainView/<int:cid>/',views.adminComplainView,name='adminComplainView'),
+    path('admin/complain_history/', views.complain_history, name='complain_history'),
     path('student/studentdashboard/AddComplain/',views.addComplain,name='addComplain'),
     path('student/studentdashboard/previousComplaints/',views.previousComplaints,name='previousComplaints'),
     path('student/studentdashboard/studentProfileView/',views.studentProfileView,name='studentProfileView'),

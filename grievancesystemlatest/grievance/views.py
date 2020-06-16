@@ -228,6 +228,7 @@ def studentdashboard(request):
         's':s,
         'p':p,
         'v':v,
+        'studentdashboard_active': 'active'
     }
     return render(request,'grievance/studentdashboard.html',context)
 
@@ -305,7 +306,8 @@ def admindashboard(request):
         'elex':elex,
         'chemical':chemical,
         'production':production,
-        'biomed':biomed
+        'biomed':biomed,
+        'admin_dashboard_active':'active'
     }
     return render(request,'grievance/admindashboard.html',context)
 
@@ -360,7 +362,7 @@ def addComplain(request):
                      messages.info(request, f"The concerned authority is not available on our system.")
     else:
         form=ComplainForm()
-    return render(request,'grievance/addComplain.html',{'form':form})
+    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active'})
 
 
 @login_required(login_url='/login/admins/')
@@ -402,7 +404,7 @@ def studentProfile(request):
                 return redirect('studentdashboard')
         else:
             form=StudentProfileForm()
-        return render(request,'grievance/profileStudent.html',{'form':form})
+        return render(request,'grievance/profileStudent.html',{'form':form, 'sprofile_active':'active'})
 
 
 @login_required(login_url='/login/admins/')
@@ -439,24 +441,35 @@ def adminProfile(request):
                     return redirect('admindashboard')
         else:
             form=AdminProfileForm()
-    return render(request,'grievance/profileAdmin.html',{'form':form})
+    return render(request,'grievance/profileAdmin.html',{'form':form, 'admin_profile_active':'active'})
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
 def previousComplaints(request):
     student=Student.objects.get(user=request.user)
     complains=Complain.objects.filter(sender=student)
     context={
         'complains':complains,
+        'scomplains_active':'active'
     }
 
     return render(request,'grievance/previousComplaints.html',context)
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
 def studentComplainView(request,cid):
     complain=Complain.objects.get(id=cid)
     context={
         'complain':complain,
+        'scomplains_active':'active'
     }
     return render(request,'grievance/studentComplainView.html',context)
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def adminComplainView(request,cid):
     complain = Complain.objects.get(id = cid)
     status = complain.status
@@ -480,8 +493,11 @@ def adminComplainView(request,cid):
         return redirect('admindashboard')
     else:
         form = ChangeStatusForm(instance=complain)
-    return render(request, 'grievance/adminComplainView.html', {'form':form, 'complain':complain})
+    return render(request, 'grievance/adminComplainView.html', {'form':form, 'complain':complain, 'admin_complains_active':'active'})
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def adminProfileView(request):
     admin=Admin.objects.get(user=request.user)
     tcomplains=Complain.objects.filter(receiver=admin).count()
@@ -492,10 +508,14 @@ def adminProfileView(request):
         'scomplains':scomplains,
         'rcomplains':rcomplains,
         'tcomplains':tcomplains,
+        'admin_profile_active':'active'
 
     }
     return render(request,'grievance/adminProfileView.html',context)
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
 def studentProfileView(request):
     student=Student.objects.get(user=request.user)
     tcomplains=Complain.objects.filter(sender=student).count()
@@ -506,6 +526,7 @@ def studentProfileView(request):
         'scomplains':scomplains,
         'rcomplains':rcomplains,
         'tcomplains':tcomplains,
+        'sprofile_active':'active'
 
     }
     return render(request,'grievance/studentProfileView.html',context)
@@ -527,7 +548,7 @@ def student_editprofile(request):
     else:
         u_form = EditUser(instance=user)
         s_form = EditStudent(instance=student)
-    return render(request, 'grievance/student_editprofile.html', {'form1':u_form, 'form2':s_form})
+    return render(request, 'grievance/student_editprofile.html', {'form1':u_form, 'form2':s_form, 'sprofile_active':'active'})
 
 
 
@@ -548,8 +569,15 @@ def admin_editprofile(request):
     else:
         u_form = EditUser(instance=user)
         a_form = EditAdmin(instance=admin)
-    return render(request, 'grievance/admin_editprofile.html', {'form1':u_form, 'form2':a_form})  
+    return render(request, 'grievance/admin_editprofile.html', {'form1':u_form, 'form2':a_form, 'admin_profile_active':'active'})  
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
+def complain_history(request):
+    admin = Admin.objects.get(user = request.user)
+    complains = Complain.objects.filter(receiver = admin)
+    return render (request, 'grievance/admin_complain_history.html', {'complains':complains, 'admin_complains_active':'active'})
 
 
 def delete(request):
