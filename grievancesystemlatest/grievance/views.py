@@ -315,7 +315,6 @@ def admindashboard(request):
         cm = cm-1
         
     
-    print(months)
     keymax=max(months, key=months.get)
     keymin=min(months, key=months.get)
     cal=calendar.month_name[keymax]
