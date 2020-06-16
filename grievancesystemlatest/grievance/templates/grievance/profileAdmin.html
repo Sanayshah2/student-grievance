@@ -19,19 +19,11 @@
   color:black;
     }
     
-    
-body{
-    background-image: url('/static/grievance/images/back7.png')
-  }    
+       
     
 </style>    
 <div class="container">
-    <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" style="font-size:20px">×</span>
-                  </button><center>Complete your profile. This step is mandatory.</center>
-                </div>
-    <div class="col-md-6 col-md-offset-3" style="text-align: center;font-family: Perpetua;">
+  <h5 style="text-align: center;">Complete your profile to proceed further.</h5>
         {% if messages %}
         {% for x in messages %}
                 <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
@@ -41,8 +33,8 @@ body{
                 </div>
          {% endfor %}
          {% endif %}
-    <div class="button1" style="font-family: 'Times New Roman', Times, serif;background-color: lightgrey;padding: 30px;margin-top: 3%;margin-bottom: 3%;text-align: center;">
-      <h2 style="padding: 15px;background-color:  rgb(241, 41, 41);color: white;">Complete your Admin Profile:</h2><hr>    
+    <div class="card" >
+      <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Complete Profile</h3>   
     <form method="POST">
         <div style="text-align: left;">
         {% csrf_token %}
@@ -76,7 +68,7 @@ body{
             
             
         </div>
-        <button type="submit" class="button button2" style="background-color:rgb(241, 41, 41)">Submit</button>
+        <button type="submit" class="btn btn-danger" >Submit</button>
         </form>
 </div>
 </div>

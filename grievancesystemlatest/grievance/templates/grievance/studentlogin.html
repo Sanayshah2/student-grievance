@@ -25,7 +25,7 @@
                 </div>
          {% endfor %}
          {% endif %}
-      <div class="button1" style="padding: 20px;background-color: rgb(231, 231, 231);margin-top: 10%;border-radius: 10px;;text-align: center;">
+      <div class="" style="padding: 20px;background-color: rgb(231, 231, 231);margin-top: 10%;border-radius: 10px;;text-align: center;">
         <div style="padding: 10px;">
       <h2 style="padding: 20px;font-weight: bold;border-bottom: 2px solid royalblue;">Student Login:</h2><br>
            <form method="POST">
@@ -35,7 +35,7 @@
              {{form|crispy}}
              <a href='{% url 'password_reset' %}'>Forgot your Password?</a><br>
          </div><br>
-             <button type="submit" class="button button2" style="background-color:royalblue;border-radius: 5px;">Login</button><br>  <br>
+             <button type="submit" class="btn btn-primary" >Login</button><br>  <br>
          </form>
          <small class='text-muted'>Don't have an acoount? You can create one in just few steps.</small> <a href={% url "studentRegister" %}>Create Account</a>
         </div>
