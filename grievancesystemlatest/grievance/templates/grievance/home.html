@@ -49,16 +49,16 @@
   <div class="row" style="margin-top: 30px;">
     <div class="col-md-6" >
       <div class="animated animatedFadeInUp fadeInUp" style="animation-delay: 0.2s;padding:20px;border-radius: 15px;padding-bottom: 30px;border: 1px solid lightgray;margin-bottom: 20px;background-color: whitesmoke;">
-      <h3 style="font-weight: bold;">Admin Login</h3>
-      <p>If you are a Management staff of a college, signup here </p>
-      <a href={% url 'adminRegister' %} style="text-decoration: none;padding: 10px;border: 1px sloid rgb(57, 120, 255);background-color: rgb(57, 120, 255);color: white;border-radius: 5px;">Sign up</a>
+      <h3 style="font-weight: bold;"><i class="fas fa-user-shield"></i> Admin Login</h3>
+      <p>If you are a Management staff of a college, login here </p>
+      <a href={% url 'loginAdmin' %} style="text-decoration: none;padding: 10px;border: 1px sloid rgb(57, 120, 255);background-color: rgb(57, 120, 255);color: white;border-radius: 5px;">Sign up</a>
     </div>
   </div>
     <div class="col-md-6" >
       <div class="animated animatedFadeInUp fadeInUp" style="animation-delay: 0.4s;padding:20px;border-radius: 15px;padding-bottom: 30px;border: 1px solid lightgray;margin-bottom: 20px;background-color: whitesmoke;">
-      <h3 style="font-weight: bold;">Student Login</h3>
+      <h3 style="font-weight: bold;"><i class="fas fa-user-graduate"></i> Student Login</h3>
       <p>If you are a student, login here</p>
-      <a href={% url 'studentRegister' %} style="text-decoration: none;padding: 10px;border: 1px sloid rgb(57, 120, 255);background-color: rgb(57, 120, 255);color: white;border-radius: 5px;">Sign up</a>
+      <a href={% url 'loginStudent' %} style="text-decoration: none;padding: 10px;border: 1px sloid rgb(57, 120, 255);background-color: rgb(57, 120, 255);color: white;border-radius: 5px;">Sign up</a>
     </div>
     </div>
   </div>
@@ -71,5 +71,9 @@
       <p style="animation-delay: 1.2s;" class="animated animatedFadeInUp fadeInUp"><span style="font-weight: bold;font-size: 20px;">S</span>tatus update of a complaint.</p>
       <p style="animation-delay: 1.4s;" class="animated animatedFadeInUp fadeInUp"><span style="font-weight: bold;font-size: 20px;">A</span>nalysis of the complain history for admins.</h5>
   </div>
+  <div class="animated animatedFadeInUp fadeInUp pt-4" style="border-top: 1px solid lightgray;animation-delay: 1.6s" >
+    <h3 style="font-weight: bold" class="mb-4"><i class="fas fa-info-circle"></i> Need a demo?</h3>
+    <a href=# class='button_student' style="color: white;text-decoration: none">Admin</a> &nbsp;&nbsp;&nbsp;&nbsp; <a style="color: white;text-decoration: none" href=# class='button_student'>Student</a>
+    </div>
 </div>
  {% endblock content %}
