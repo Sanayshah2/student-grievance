@@ -27,8 +27,8 @@
       <h3  style="font-weight: bold;animation-delay: 0.2s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Admin Dashboard</h2>
       <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp"></div>
     </div>   <br> <br>
-         
-     <canvas id="columnchart_values" style="width: 900px;height: 230px; background-color: whitesmoke;border: 1px solid lightgrey;border-radius: 10px;" class="col-md-12 col-12"></canvas>
+         <div style="background-color: rgba(255, 0, 0, 0.507);">Heyyy</div>
+     <canvas id="columnchart_values" style="padding:15px; width: 900px;height: 240px; background-color: whitesmoke;border: 1px solid lightgrey;border-radius: 10px;" class="col-md-12 col-12"></canvas>
      <script type="text/javascript">
       Chart.defaults.global.defaultFontSize = 12;
       Chart.defaults.global.defaultFontColor = 'black'; 
@@ -198,29 +198,29 @@
 
 
                 ],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
+                 backgroundColor: 'rgba(255, 0, 0, 0.35)'
+                //     'rgba(255, 99, 132, 0.2)',
+                //     'rgba(54, 162, 235, 0.2)',
+                //     'rgba(255, 206, 86, 0.2)',
+                //     'rgba(75, 192, 192, 0.2)',
+                //     'rgba(153, 102, 255, 0.2)',
+                //     'rgba(255, 159, 64, 0.2)'
+                 ,
+                borderColor: 'red'
+                    // 'rgba(255, 99, 132, 1)',
+                    // 'rgba(54, 162, 235, 1)',
+                    // 'rgba(255, 206, 86, 1)',
+                    // 'rgba(75, 192, 192, 1)',
+                    // 'rgba(153, 102, 255, 1)',
+                    // 'rgba(255, 159, 64, 1)'
+                ,
                 borderWidth: 1
             }]
         },
         options: {
           title: {
                   display: true,
-                  text: 'Number of complains in 6 months'
+                  text: 'Number of complains in past 6 months'
                 },
             scales: {
                 yAxes: [{
