@@ -9,24 +9,24 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav sm-auto">
           <li class="nav-item ">
-            <a class="nav-link" >Home
+            <a class="nav-link" href={% url "home" %} >Home
                   <span class="sr-only">(current)</span>
                 </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" >India</a>
+            <a class="nav-link" href={% url "adminRegister" %} >Admin Signup</a>
           </li>
           <!--<li class="nav-item">
             <a class="nav-link" href=>Map</a>
           </li>-->
           <li class="nav-item">
-            <a class="nav-link" >Helpline (States)</a>
+            <a class="nav-link" href={% url "loginAdmin" %}>Admin Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" >Essential Services (Mumbai, Maharashtra)</a>
+            <a class="nav-link" href={% url "studentRegister" %} >Student Signup</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" }>Health Advisory</a>
+            <a class="nav-link" } href={% url "loginStudent" %}>Student Login</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" >About</a>

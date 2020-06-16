@@ -14,11 +14,7 @@ body{
 
 
 <div class="container">
-    <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" style="font-size:20px">×</span>
-                  </button><center>Complete your profile. This step is mandatory.</center>
-                </div>
+    <h5 style="text-align: center;">Complete your profile. This step is mandatory.</h5>
     <div class="col-md-6 col-md-offset-3" style="text-align: center;font-family: Perpetua;">
         {% if messages %}
         {% for x in messages %}
@@ -29,8 +25,8 @@ body{
                 </div>
          {% endfor %}
          {% endif %}
-<div class="button1" style="font-family: 'Times New Roman', Times, serif;background-color: lightgrey;padding: 30px;margin-top: 3%;margin-bottom: 3%;text-align: center;">
-        <h2 style="padding: 15px;background-color:  royalblue;color: white;">Complete your Student Profile:</h2><hr>    
+<div class="card" >
+  <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid royalblue ;text-align: center;">Complete Profile</h3>     
     <form method="POST">
         <div style="text-align: left;">
         {% csrf_token %}
