@@ -224,6 +224,29 @@ google.charts.load("current", {packages:['corechart']});
       
     
   </div>
+
+  <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
+    <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complains in Progress</h2>
+    <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    {% if ipcomplains %}
+  
+  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+    {% for p in ipcomplains %}
+    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+
+    </div>
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+      <p class='text-muted'>No Complains to display</p>
+
+    </div>
+  {% endif %}
+  </div>
+
   <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
     <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Addressed Complains</h2>
     <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>

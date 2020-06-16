@@ -39,9 +39,8 @@ class LoginForm(forms.Form):
 
 class ChangeStatusForm(ModelForm):
     status_choices = {
-        ('Pending', 'Pending'),
-        ('Viewed', 'Viewed'),
         ('Solved', 'Solved'),
+        ('In Progress', 'In Progress'),
         ('Rejected', 'Rejected')
     }
     

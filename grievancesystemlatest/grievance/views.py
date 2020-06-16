@@ -211,6 +211,7 @@ def studentdashboard(request):
     rcomplains=Complain.objects.filter(sender=student,status='Rejected')
     vcomplains=Complain.objects.filter(sender=student,status='Viewed')
     scomplains=Complain.objects.filter(sender=student,status='Solved')
+    ipcomplains = Complain.objects.filter(sender=student,status='In Progress')
     p=pcomplains.count()
     r=rcomplains.count()
     s=scomplains.count()
@@ -222,6 +223,7 @@ def studentdashboard(request):
         'vcomplains':vcomplains,
         'rcomplains':rcomplains,
         'scomplains':scomplains,
+        'ipcomplains':ipcomplains,
         'r':r,
         's':s,
         'p':p,
@@ -238,12 +240,20 @@ def admindashboard(request):
     complains=Complain.objects.filter(receiver=admin)
     for c  in complains:
         if c.status == 'Pending':
+            to_email = c.sender.user.email
+            mail_subject = 'Status Changed'
+            message =  'Hey ' +c.sender.user.first_name+',\nYour complain was viewed by the concerned authority and will be addressed soon.\n\nYour complain details.\nComplain heading : '+c.complain_heading+'\nComplain content: '+c.complain_content
+            email = EmailMessage(
+                        mail_subject, message, to=[to_email]
+            )
+            email.send()
             c.status = 'Viewed'
-            c.save()
+            c.save()    
 
     rcomplains=Complain.objects.filter(receiver=admin,status='Rejected')
     scomplains=Complain.objects.filter(receiver=admin,status='Solved')
     vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
+    ipcomplains = Complain.objects.filter(receiver=admin,status='In Progress')
     management = Complain.objects.filter(college=college, related_to='Management').count()
     security = Complain.objects.filter(college=college, related_to='Security').count()
     library = Complain.objects.filter(college=college, related_to='Library').count()
@@ -282,6 +292,7 @@ def admindashboard(request):
         'rcomplains':rcomplains,
         'scomplains':scomplains,
         'vcomplains':vcomplains,
+        'ipcomplains':ipcomplains,
         'months':months,
         'management':management,
         'security':security,
@@ -454,6 +465,17 @@ def adminComplainView(request,cid):
         instance = form.save(commit=False)
         complain.status = instance.status
         complain.save()
+        if complain.status == 'In Progress':
+            mail_subject = 'Complain in progress'
+            message =  'Hey ' +complain.sender.user.first_name+',\nYour complain is in progress and will be addressed very soon.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        else:   
+            mail_subject = 'Complain '+complain.status
+            message =  'Hey ' +complain.sender.user.first_name+',\nYour complain was '+complain.status+' by the concerned authority.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        to_email = complain.sender.user.email
+        email = EmailMessage(
+                    mail_subject, message, to=[to_email]
+        )
+        email.send()
         messages.info(request, f'Status changed successfully!')
         return redirect('admindashboard')
     else:

@@ -102,6 +102,7 @@ class Complain(models.Model):
     
     status_choices = {
         ('Pending', 'Pending'),
+        ('In Progress', 'In Progress'),
         ('Viewed', 'Viewed'),
         ('Solved', 'Solved'),
         ('Rejected', 'Rejected')
@@ -122,7 +123,7 @@ class Complain(models.Model):
     college=models.CharField(max_length=300,default='',choices=college_choices)
     branch=models.CharField(max_length=300,blank='true', null='true',choices=branch_choices)
     date_posted =models.DateTimeField(default=timezone.now)
-    status = models.CharField(choices = status_choices, default='Pending', max_length = 10)
+    status = models.CharField(choices = status_choices, default='Pending', max_length = 20)
     response = models.TextField(default='')
     related_to = models.CharField(choices = related_to_choices, default='', max_length = 20, verbose_name = 'Complain Related to')
 
