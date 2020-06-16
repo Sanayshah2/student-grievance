@@ -86,7 +86,7 @@ def activateadmin(request, uidb64, token, name):
         user.save()
         group=Group.objects.get(name='faculty')
         user.groups.add(group)
-        messages.info(request, f'Thank you for your email confirmation. Your account has been created! {user.first_name}, you are now ready to Log In.')
+        messages.info(request, f'Thank you for your email confirmation. Your account has been created! {user.username}, you are now ready to Log In.')
         return redirect('loginAdmin')
     else:
         user.delete()
@@ -151,7 +151,7 @@ def activatestudent(request, uidb64, token, name):
         user.save()
         group=Group.objects.get(name='student')
         user.groups.add(group)
-        messages.info(request, f'Thank you for your email confirmation. Your account has been created! {user.first_name}, you are now ready to Log In.')
+        messages.info(request, f'Thank you for your email confirmation. Your account has been created! {user.username}, you are now ready to Log In.')
         return redirect('loginStudent')
     else:
         user.delete()
@@ -625,6 +625,5 @@ def delete(request):
     messages.info(request, 'Account deleted successfully!')
     return redirect('home')
 
-
-    
-   
+def about(request):
+    return render (request, 'grievance/about.html')

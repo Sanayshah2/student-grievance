@@ -1,0 +1,35 @@
+{% extends 'grievance/base.html' %}
+{% block content %}
+{% include 'grievance/navbar.html' %}
+<style>
+    .btn-linkedin {
+    background: #0E76A8;
+    border-radius: 0;
+    color: #fff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #084461;
+    border-radius:5px
+}
+.btn-linkedin:link, .btn-linkedin:visited {
+    color: #fff;
+}
+.btn-linkedin:active, .btn-linkedin:hover {
+    background: #084461;
+    color: #fff;
+}
+</style>
+
+<div class='container'>
+    <br>
+    <div class="card">
+        <center><h2 class='mb-4'><i class="fas fa-cogs"></i> Who made this website?</h2></center>
+        <ul class="" style="list-style-type:initial;">
+            <li>This website is made with <i class='fa fa-heart' style="color:red"></i> by <strong>Sanay Shah</strong> and <strong>Shivesh Jha</strong>.</li><br>
+            <li>We are computer engineering students from Dwarkadas J Sanghvi College Of Engineering, Mumbai.</li><br>
+            <li><a class='btn btn-linkedin' href='https://www.linkedin.com/in/sanay-shah-45b973194/'><i class="fab fa-linkedin-in"></i> @Sanay Shah</a>&ensp; <a class='btn btn-linkedin' href='https://www.linkedin.com/in/shivesh-jha-b74b46198/'><i class="fab fa-linkedin-in" aria-hidden="true"></i> @Shivesh Jha</a></li><br>
+            <li>If you have any cool ideas to add to the website, mail us or connect on LinkedIn.</li>
+        </ul>
+    </div>
+</div>    
+{% endblock content %}

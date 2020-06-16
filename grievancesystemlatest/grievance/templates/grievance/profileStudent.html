@@ -1,21 +1,23 @@
 {% extends 'grievance/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% include 'grievance/navbar.html' %}
 <style>
 .alert-custom{
   background-color: lightgray;
   color:black;
     }
     
-body{
-      background-image: url('/static/grievance/images/back5.jpg')
-    }    
+    .navbar{
+  background-color: royalblue;
+}
 </style>    
 
 
 <div class="container">
-    <h5 style="text-align: center;">Complete your profile. This step is mandatory.</h5>
-    <div class="col-md-6 col-md-offset-3" style="text-align: center;font-family: Perpetua;">
+    <h5 style="text-align: center;margin-top:10px;font-size: 20px; letter-spacing: 0.5px; padding: 10px;" class='alert alert-custom'>Complete your profile. This step is mandatory.</h5>
+    <div class='row justify-content-center'>
+    <div class="col-md-6 col-12" style="margin-top: 10px;">
         {% if messages %}
         {% for x in messages %}
                 <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
@@ -32,9 +34,10 @@ body{
         {% csrf_token %}
         {{form|crispy}}
     </div>
-        <button type="submit" class="button button2" style="background-color:royalblue;">Submit</button><br><br>
+        <button type="submit" class="btn btn-primary">Submit</button><br><br>
     </form>
    
 </div>
 </div>
-{% endblock %}
+</div>
+{% endblock content %}
