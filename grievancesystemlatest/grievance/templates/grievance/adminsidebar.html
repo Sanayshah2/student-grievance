@@ -23,7 +23,7 @@
   color:black;
     }    
     
-.sidebar h2 {
+.sidebar h4 {
   display: block;
   color: white;
   padding: 15px;
@@ -39,8 +39,8 @@
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: #555;
-  color: white;
+  background-color: whitesmoke;
+  color: red;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -62,7 +62,8 @@ div.content {
     float: left;
     padding: 10px;
     border:1px solid red;
-    background-color: whitesmoke;
+    background-color: red;
+    color: white;
     border-radius: 8px;
     font-size: 12px;
     margin:5px;
@@ -78,11 +79,10 @@ div.content {
 <div class="" >
 
     <div class="sidebar">
-        <h2 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h2>
+        <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
         <a  href={% url 'admindashboard' %}>Admin Dashboard</a>
-        <a href={% url "password_change" %}>Change Password</a>
         <a href={% url 'adminProfileView' %}>My Profile</a>
-        <a  href=href='myModal6969' data-toggle="modal" data-target="#myModal6969">Delete Account</a>
+
         <a  href='myModal69' data-toggle="modal" data-target="#myModal69">Log Out</a>
       </div>
 </div>    
@@ -94,8 +94,9 @@ div.content {
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" style='color: black'>Log Out</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
                   </div>
                   <div class="modal-body" style='color: black'>
                       Are you sure you want to Log Out?
@@ -116,8 +117,9 @@ div.content {
                 <!-- Modal content-->
                 <div class="modal-content">
                   <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title" style='color: black'>DELETE</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    
                   </div>
                   <div class="modal-body" style='color: black'>
                       Are you sure you want to delete your account? You will lose it permanently.

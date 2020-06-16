@@ -3,15 +3,14 @@
 {% load static %}
 {% block content %}
 {% include 'grievance/adminsidebar.html' %}
- <div class="content" style="font-family: 'Times New Roman', Times, serif;">
-        <h3 class="button1" style="padding: 15px;padding-left: 7pxpx;border-left: 5px solid black;background-color: rgb(241, 41, 41);color: white;margin-bottom: 30px;font-family: 'Times New Roman', 'Times', serif; letter-spacing: 1px">&#9679; Edit your Profile</h3>
-        <div class='container'>
-        <form method="POST">
-            {% csrf_token %}
-            {{form1|crispy}}
-            {{form2|crispy}}
-        <button type="submit" class="button button2" style="background-color: rgb(241, 41, 41);">Update Profile</button> 
-     </form>
-     </div>
-</div>
+<div class="content">
+    <h3 class='animated animatedFadeInUp fadeInUp' style="animation-delay: 0.3s;margin-top: 20px;font-weight: bold;">Edit Your Profile</h3>
+    <div class='animated animatedFadeInUp fadeInUp' style='animation-delay: 0.3s;border-bottom: 3px solid red;margin-bottom: 20px;width: 40%;'></div>
+         <form method="POST" class='animated animatedFadeInUp fadeInUp' style='animation-delay: 0.5s;'>
+             {% csrf_token %}
+             {{form1|crispy}}
+             {{form2|crispy}}
+         <button type="submit" class="btn btn-danger">Update Profile</button> 
+      </form>
+ </div>
 {% endblock content %}
