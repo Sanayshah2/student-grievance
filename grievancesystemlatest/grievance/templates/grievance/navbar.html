@@ -1,7 +1,12 @@
+<style>
+  #X{
+    color: red;
+  }
+</style>
 <nav class="navbar  navbar-dark sticky-top static-top" style="border-bottom: 2px solid darkgrey;">
     <div class="container">
       <a class="navbar-brand" href={% url 'home' %}>
-            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span style="color:red;font-style: italic">X</span></h4>
+            <h4 style="padding-top: 5px;font-weight: bold;">Complain<span id='X' style=font-style: italic">X</span></h4>
           </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" style="color: ;">
             <span class="navbar-toggler-icon" style="color: "></span>
