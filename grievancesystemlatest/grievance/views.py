@@ -16,6 +16,11 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
+from datetime import datetime
+from datetime import date
+import calendar
+import requests
+from operator import itemgetter
 
 
 
@@ -237,6 +242,7 @@ def studentdashboard(request):
 @adminprofile_required
 def admindashboard(request):
     admin=Admin.objects.get(user=request.user)
+    position=admin.designation
     college = admin.college
     complains=Complain.objects.filter(receiver=admin)
     for c  in complains:
@@ -249,7 +255,7 @@ def admindashboard(request):
             )
             email.send()
             c.status = 'Viewed'
-            c.save()    
+            c.save() 
 
     rcomplains=Complain.objects.filter(receiver=admin,status='Rejected')
     scomplains=Complain.objects.filter(receiver=admin,status='Solved')
@@ -269,31 +275,59 @@ def admindashboard(request):
     biomed = Complain.objects.filter(college=college, related_to='Faculty', branch='Bio Med').count()
     
     months = {
-        '01':0,
-        '02':0,
-        '03':0,
-        '04':0,
-        '05':0,
-        '06':0,
-        '07':0,
-        '08':0,
-        '09':0,
-        '10':0,
-        '11':0,
-        '12':0,    
+        1:0,
+        2:0,
+        3:0,
+        4:0,
+        5:0,
+        6:0,
+        7:0,
+        8:0,
+        9:0,
+        10:0,
+        11:0,
+        12:0,    
     }
-    for month in months:
+
+    
+
+    c=datetime.today()
+    cm=c.month
+    cm1=c.month
+    diff= cm1 - 6
+    
+    cy=c.year
+    cy1=c.year
+
+    
+    for i in range(0,6) :
+        if cm < 1:
+            cm=12
+            cy=cy-1
         for x in complains:
             l = str(x.date_posted)
             monthnumber = l[5:7]
-            if monthnumber == month:
-                months[month] = months[month] + 1
+            m=int(monthnumber)
+            year = l[0:4]
+            y=int(year)
+            if m == cm and y == cy:
+                months[cm] = months[cm] + 1
+        cm = cm-1
+        
+    
+    print(months)
+    keymax=max(months, key=months.get)
+    keymin=min(months, key=months.get)
+    cal=calendar.month_name[keymax]
+    cal1=calendar.month_name[keymin]
+    
     
     context={
+        'cal':cal,
+        'cal1':cal1,
         'rcomplains':rcomplains,
         'scomplains':scomplains,
         'vcomplains':vcomplains,
-        'ipcomplains':ipcomplains,
         'months':months,
         'management':management,
         'security':security,
@@ -307,7 +341,13 @@ def admindashboard(request):
         'chemical':chemical,
         'production':production,
         'biomed':biomed,
-        'admin_dashboard_active':'active'
+        'cy1':cy1,
+        'cm1':cm1,
+        'cy':cy,
+        'diff':diff,
+        'position':position,
+        'admin_dashboard_active':'active',
+
     }
     return render(request,'grievance/admindashboard.html',context)
 
