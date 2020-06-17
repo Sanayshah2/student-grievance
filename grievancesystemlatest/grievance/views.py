@@ -7,6 +7,8 @@ from django.contrib.auth.models import Group,User
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .decorators import *
+from django.db.models import Q
+
 
 
 
@@ -261,6 +263,8 @@ def admindashboard(request):
     scomplains=Complain.objects.filter(receiver=admin,status='Solved')
     vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
     ipcomplains = Complain.objects.filter(receiver=admin,status='In Progress')
+    srcomplains = Complain.objects.filter(Q(status='Solved', receiver=admin) | Q(status='Rejected', receiver=admin))
+    print(srcomplains)
     management = Complain.objects.filter(college=college, related_to='Management').count()
     security = Complain.objects.filter(college=college, related_to='Security').count()
     library = Complain.objects.filter(college=college, related_to='Library').count()
@@ -327,6 +331,7 @@ def admindashboard(request):
         'rcomplains':rcomplains,
         'scomplains':scomplains,
         'vcomplains':vcomplains,
+        'srcomplains':srcomplains,
         'months':months,
         'management':management,
         'security':security,
