@@ -90,7 +90,7 @@ div.content {
 
     <div class="sidebar">
         <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
-        <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Admin Dashboard</a>
+        <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
         <a  href={% url 'complain_history' %} class='{{admin_complains_active}}'>Complain History</a>
         <a href={% url 'adminProfileView' %} class='{{admin_profile_active}}'>My Profile</a>
 
