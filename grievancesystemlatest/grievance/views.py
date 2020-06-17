@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .decorators import *
 from django.db.models import Q
+from django.utils import timezone
 
 
 
@@ -521,6 +522,7 @@ def adminComplainView(request,cid):
         form = ChangeStatusForm(request.POST, instance=complain)
         instance = form.save(commit=False)
         complain.status = instance.status
+        complain.date_resolved = date.today().strftime('%b %d, %Y')
         complain.save()
         if complain.status == 'In Progress':
             mail_subject = 'Complain in progress'
