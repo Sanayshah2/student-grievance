@@ -79,18 +79,28 @@
   </div>
   <div class="animated animatedFadeInUp fadeInUp pt-4 mb-5" style="border-top: 1px solid lightgray;animation-delay: 1.6s" >
     <h4 style="font-weight: bold" class="mb-4"><i class="fas fa-info-circle"></i> Need a demo?</h4>
-    <div class='row demo'>
-      <div class='col-md-3 col-6'>
-    <p style="font-weight: bold;">For admin </p>
-    <p>Username : demoadmin<br>Password : pass@123</p>
+    <div class='card '>
+      <div class='row'>
+   <div class="col-5 mb-2" style="border-right: 1px solid gray;"> <p style="font-weight: bold;">For Admin </p>
     <a href='{% url "loginAdmin" %}' class='button_student' style="color: white;text-decoration: none">Admin</a>
+  </div>
+  <div class="col-7">
+    <p><span style="font-weight: bold;">Username :</span> demoadmin<br>Password : pass@123</p>
+  </div>
+</div>
     </div>
-    <div class='col-md-3 col-6'>
-      <p style="font-weight: bold;">For student </p>
-      <p>Username : demostudent<br>Password : pass@123</p>
-    <a style="color: white;text-decoration: none" href='{% url "loginStudent" %}' class='button_student'>Student</a>
-      </div>
-      </div>
+    <div class='card mt-3'>
+      <div class='row'>
+   <div class="col-5 mb-2" style="border-right: 1px solid gray;"> <p style="font-weight: bold;">For Student </p>
+    <a href='{% url "loginStudent" %}' class='button_student' style="color: white;text-decoration: none">Student</a>
+  </div>
+  <div class="col-7">
+    <p><span style="font-weight: bold;">Username :</span> demostudent<br>Password : pass@123</p>
+  </div>
+</div>
+    </div>
+  
+      
   </div>
 </div>
  {% endblock content %}
