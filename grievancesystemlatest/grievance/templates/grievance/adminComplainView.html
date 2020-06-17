@@ -41,7 +41,7 @@
         <form method='POST' >
             {% csrf_token %}
             {{form|crispy}}
-            <button type="submit" class="btn btn-danger"  >Change Status</button>
+            {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Change Status</a>{% else %}<button type="submit" class="btn btn-danger"  >Change Status</button>{% endif %}
         </form>
     </div><br>
 

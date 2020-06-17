@@ -37,7 +37,7 @@
   </div>
   <div class="" style="border-bottom: 1px solid lightgray;"></div><br>
   
-  <span><a href='{% url 'student_editprofile' %}' style="margin-right:20px">Edit Profile</a><a style="margin-right:20px" href='myModal6969' data-toggle="modal" data-target="#myModal6969">Delete Account</a><br><a  href='{% url 'password_change' %}'>Change Password</a><span>
+  <span><a href='{% url 'student_editprofile' %}' style="margin-right:20px">Edit Profile</a><a style="margin-right:20px"  {% if user.username == 'demostudent' %}href='#'{% else %}href='myModal6969' data-toggle="modal" data-target="#myModal6969"{% endif %}>Delete Account</a><br><a   {% if user.username == 'demostudent' %}href='#'{% else %}href='{% url 'password_change' %}' {% endif %}>Change Password</a><span>
 </div>
 
 {% endblock %}
