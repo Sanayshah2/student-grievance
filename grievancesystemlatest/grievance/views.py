@@ -8,6 +8,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from .decorators import *
 from django.db.models import Q
+from django.utils import timezone
 
 
 
@@ -264,7 +265,6 @@ def admindashboard(request):
     vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
     ipcomplains = Complain.objects.filter(receiver=admin,status='In Progress')
     srcomplains = Complain.objects.filter(Q(status='Solved', receiver=admin) | Q(status='Rejected', receiver=admin))
-    print(srcomplains)
     management = Complain.objects.filter(college=college, related_to='Management').count()
     security = Complain.objects.filter(college=college, related_to='Security').count()
     library = Complain.objects.filter(college=college, related_to='Library').count()
@@ -521,6 +521,7 @@ def adminComplainView(request,cid):
         form = ChangeStatusForm(request.POST, instance=complain)
         instance = form.save(commit=False)
         complain.status = instance.status
+        complain.date_resolved = date.today().strftime('%b %d, %Y')
         complain.save()
         if complain.status == 'In Progress':
             mail_subject = 'Complain in progress'

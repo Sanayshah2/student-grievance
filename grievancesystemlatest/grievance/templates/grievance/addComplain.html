@@ -68,7 +68,7 @@
     </select>    
   </div><br>
 
-            <button type="submit" class="btn btn-primary" >Submit</button>
+            {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary'>Submit</a>{% else %}<button type="submit" class="btn btn-primary" >Submit</button>{% endif %}
             
         </form>
            
