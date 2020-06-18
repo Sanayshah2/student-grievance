@@ -90,8 +90,17 @@ div.content {
 
     <div class="sidebar">
         <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
+        {% if user.admin.designation == Principal %}
+        <a  href={% url 'principaldashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
+        <a href={% url 'principalanalysis' %} class='{{admin_dashboard_active}}'>Complain Analysis</a>
+        <a href={% url 'principalanalysis' %} class='{{admin_dashboard_active}}'>My Complain</a>
+
+
+
+        {% else %}
         <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
         <a  href={% url 'complain_history' %} class='{{admin_complains_active}}'>Complain History</a>
+        {% endif %}
         <a href={% url 'adminProfileView' %} class='{{admin_profile_active}}'>My Profile</a>
 
         <a  href='myModal69' data-toggle="modal" data-target="#myModal69">Log Out</a>
