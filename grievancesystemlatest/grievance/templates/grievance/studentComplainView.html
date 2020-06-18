@@ -25,7 +25,7 @@
         <div class="row">
         <div class="col-12 " style=""><p ><span style="font-weight: bold;">Response: </span><span>
             {% if complain.response %}
-             {{complain.response}}
+             {{complain.response}}<p><span style="font-weight: bold;">Date resolved :</span>{{complain.date_resolved}}</p>
             {% else %}
             No response yet.
             {% endif %}
@@ -35,7 +35,9 @@
     </div>
 
     </div>
-
+    {% if complain.tranfer %}
+    <p style="font-style: italic;margin-top: 20px;">This complain was transferred to higher authority.</p>
+    {% endif %}
 </div>
 
         
