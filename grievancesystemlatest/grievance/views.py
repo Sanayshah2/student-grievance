@@ -220,6 +220,8 @@ def studentdashboard(request):
     vcomplains=Complain.objects.filter(sender=student,status='Viewed')
     scomplains=Complain.objects.filter(sender=student,status='Solved')
     ipcomplains = Complain.objects.filter(sender=student,status='In Progress')
+    tcomplains=Complain.objects.filter(sender=student,transfer=True)
+    
     p=pcomplains.count()
     r=rcomplains.count()
     s=scomplains.count()
