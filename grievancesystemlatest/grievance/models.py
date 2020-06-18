@@ -127,6 +127,7 @@ class Complain(models.Model):
     status = models.CharField(choices = status_choices, default='Pending', max_length = 20)
     response = models.TextField(default='')
     related_to = models.CharField(choices = related_to_choices, default='', max_length = 20, verbose_name = 'Complain Related to')
+    transfer = models.BooleanField(default=False)
 
     
 

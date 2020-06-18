@@ -264,6 +264,7 @@ def admindashboard(request):
     scomplains=Complain.objects.filter(receiver=admin,status='Solved')
     vcomplains=Complain.objects.filter(receiver=admin,status='Viewed')
     ipcomplains = Complain.objects.filter(receiver=admin,status='In Progress')
+    tcomplains = Complain.objects.filter(receiver=admin,transfer=True)
     srcomplains = Complain.objects.filter(Q(status='Solved', receiver=admin) | Q(status='Rejected', receiver=admin))
     management = Complain.objects.filter(college=college, related_to='Management').count()
     security = Complain.objects.filter(college=college, related_to='Security').count()
@@ -332,6 +333,7 @@ def admindashboard(request):
         'scomplains':scomplains,
         'vcomplains':vcomplains,
         'srcomplains':srcomplains,
+        'ipcomplains':ipcomplains,
         'months':months,
         'management':management,
         'security':security,
@@ -351,6 +353,7 @@ def admindashboard(request):
         'diff':diff,
         'position':position,
         'admin_dashboard_active':'active',
+        'tcomplains':tcomplains,
 
     }
     return render(request,'grievance/admindashboard.html',context)
@@ -633,3 +636,10 @@ def delete(request):
 
 def about(request):
     return render (request, 'grievance/about.html')
+
+def transfer(request,cid):
+    if request.method == 'POST':
+        complain = Complain.objects.get(id = cid)
+        complain.transfer = True
+        complain.save()
+        return redirect('admindashboard')

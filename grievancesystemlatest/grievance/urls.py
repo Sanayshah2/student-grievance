@@ -29,7 +29,9 @@ urlpatterns = [
     path('admin/admindashboard/profile/editprofile/', views.admin_editprofile, name='admin_editprofile'),
     path('student/delete/', views.delete, name='deletestudent'),
     path('admin/delete/', views.delete, name='deleteadmin'),
-    path('about/', views.about, name='about')
+    path('about/', views.about, name='about'),
+    path('admin/transfer/<int:cid>/', views.transfer, name='transfer'),
+
 
 
 ]

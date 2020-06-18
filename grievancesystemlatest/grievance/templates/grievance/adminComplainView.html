@@ -35,7 +35,8 @@
     </div>
 
     </div><br>
-    {% if complain.status == 'Viewed' or complain.status == 'In Progress' %}
+    {% if complain.status == 'Viewed' or complain.status == 'In Progress'  %}
+    {% if not complain.transfer %}
     <div class="card">
         <h4 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Change Status and Response</h4><br>
         <form method='POST' >
@@ -44,7 +45,41 @@
             {% if user.username == 'demoadmin' %}<a href='#' class='btn btn-danger'>Change Status</a>{% else %}<button type="submit" class="btn btn-danger"  >Change Status</button>{% endif %}
         </form>
     </div><br>
+    <div style="margin-bottom: 20px;">
+    <a  href='myModaltransfer' data-toggle="modal" data-target="#myModaltransfer" style="padding: 15px;border: 1px solid red;border-radius: 10px;color: red;">Transfer</a>
+    </div>
+    <div class="modal fade" id="myModaltransfer" role="dialog">
+        <div class="modal-dialog">
+        
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title" style='color: black'>Transfer complain confirmation </h4>
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              
+            </div>
+            <div class="modal-body" style='color: black'>
+                Are you sure you want to transfer this complain?
+            </div>
+            <div class="modal-footer">
+              <a href='#' data-dismiss="modal" class="btn btn-outline-danger">Close</a>
+              <form method='POST' action="/admin/transfer/{{complain.id}}/">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger" style="margin-top: 15px;">Transfer Complain</button>
+            </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <br>
+    {% else %}
+    <p>This complain has been transfered</p>
+    <br>
+    {% endif %}
 
     {% endif %}
+
+    
 </div>
+
 {% endblock %}
