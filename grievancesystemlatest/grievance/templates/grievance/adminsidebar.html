@@ -91,9 +91,9 @@ div.content {
     <div class="sidebar">
         <h4 style="">Welcome, {{user.first_name}} {{user.last_name}}!</h4>
         {% if user.admin.designation == 'Principal' %}
-        <a  href={% url 'admindashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
-        <a href={% url 'principalanalysis' %} class='{{admin_dashboard_active}}'>Complain Analysis</a>
-        <a href={% url 'principalanalysis' %} class='{{admin_dashboard_active}}'>My Complain</a>
+        <a  href={% url 'principaldashboard' %} class='{{admin_dashboard_active}}'>Dashboard</a>
+        
+        <a href={% url 'principalComplains' %} class='{{admin_dashboard_active}}'>My Complains</a>
 
 
 

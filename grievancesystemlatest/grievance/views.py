@@ -199,7 +199,14 @@ def loginAdmin(request):
                 g=group.name
                 if g == 'faculty':
                     login(request,user)
-                    return redirect('admindashboard')
+                    if request.user.admin.designation == 'Faculty':
+                        return redirect('admindashboard')
+                    elif request.user.admin.designation == 'Principal':
+                        return redirect('principaldashboard')
+                    else:
+                        messages.info(request, f'Some error occured')    
+
+
                 else:
                     messages.info(request, f'Account belongs to a student. Go to the student login page and Log In')
             elif user is None:
@@ -540,7 +547,10 @@ def adminComplainView(request,cid):
         )
         email.send()
         messages.info(request, f'Status changed successfully!')
-        return redirect('admindashboard')
+        if request.user.admin.designation == 'Principal':
+            return redirect('principaldashboard')
+        else:
+            return redirect('admindashboard')
     else:
         form = ChangeStatusForm(instance=complain)
     return render(request, 'grievance/adminComplainView.html', {'form':form, 'complain':complain, 'admin_complains_active':'active'})
@@ -645,3 +655,78 @@ def transfer(request,cid):
         complain.transfer = True
         complain.save()
         return redirect('admindashboard')
+
+def principalComplains(request):
+    pcollege = request.user.admin.college
+    complains = Complain.objects.filter(college = pcollege,transfer = True)
+    context={
+        'complains':complains,
+    }
+    return render(request,'grievance/principalComplains.html',context)
+
+def principaldashboard(request):
+    complains=Complain.objects.filter(college=request.user.admin.college)
+    compcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Computer',college=request.user.admin.college)
+    itcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='IT',college=request.user.admin.college)
+    chemcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Chemical',college=request.user.admin.college)
+    extccomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='EXTC',college=request.user.admin.college)
+    elexcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Elex',college=request.user.admin.college)
+    prodcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Production',college=request.user.admin.college)
+    biocomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Bio Med',college=request.user.admin.college)
+
+    months = {
+        1:0,
+        2:0,
+        3:0,
+        4:0,
+        5:0,
+        6:0,
+        7:0,
+        8:0,
+        9:0,
+        10:0,
+        11:0,
+        12:0,    
+    }
+
+    
+
+    c=datetime.today()
+    cm=c.month
+    cm1=c.month
+    diff= cm1 - 6
+    
+    cy=c.year
+    cy1=c.year
+
+    
+    for i in range(0,6) :
+        if cm < 1:
+            cm=12
+            cy=cy-1
+        for x in complains:
+            l = str(x.date_posted)
+            monthnumber = l[5:7]
+            m=int(monthnumber)
+            year = l[0:4]
+            y=int(year)
+            if m == cm and y == cy:
+                months[cm] = months[cm] + 1
+        cm = cm-1
+
+    context={
+        'compcomplains':compcomplains,
+        'itcomplains':itcomplains,
+        'extccomplains':extccomplains,
+        'elexcomplains':elexcomplains,
+        'prodcomplains':prodcomplains,
+        'biocomplains':biocomplains,
+        'chemcomplains':chemcomplains,
+        'cy1':cy1,
+        'cm1':cm1,
+        'cy':cy,
+        'diff':diff,
+        'months':months,
+    }
+
+    return render(request,'grievance/principaldashboard.html',context)

@@ -31,6 +31,8 @@ urlpatterns = [
     path('admin/delete/', views.delete, name='deleteadmin'),
     path('about/', views.about, name='about'),
     path('admin/transfer/<int:cid>/', views.transfer, name='transfer'),
+    path('admin/principalComplains/', views.principalComplains, name='principalComplains'),
+    path('admin/principalDashboard/', views.principaldashboard, name='principaldashboard'),
 
 
 
