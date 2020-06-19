@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect,reverse,HttpResponse
-from.models import Complain,Admin,Student
+from.models import Complain,Admin,Student,Like
 from.forms import *
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -728,3 +728,26 @@ def principaldashboard(request):
     }
 
     return render(request,'grievance/principaldashboard.html',context)
+
+def like(request):
+    if request.method == 'GET':
+        cid = request.GET.get('cid')
+        student = Student.objects.get(user = request.user)
+        complain1 = Complain.objects.get(id = cid )
+        new_like,created = Like.objects.get_or_create(liker = student ,complain = complain1)
+        if not created:
+            new_like.save()
+
+            return redirect('previousComplaints')
+        else:
+            complain1.like_count = complain1.like_count+1
+            complain1.save()
+            return redirect('previousComplaints')
+
+def collegefeed(request):
+    complains=Complain.objects.filter(college=request.user.student.college)
+    context={
+        'complains':complains,
+        'collegefeed_active':'active',
+    }
+    return render(request,'grievance/collegefeed.html',context)

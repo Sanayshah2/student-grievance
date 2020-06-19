@@ -5,8 +5,10 @@ from django.contrib import admin
 from .models import Admin
 from .models import Student
 from .models import Complain
+from .models import Like
 
 
 admin.site.register(Admin)
 admin.site.register(Student)
 admin.site.register(Complain)
+admin.site.register(Like)

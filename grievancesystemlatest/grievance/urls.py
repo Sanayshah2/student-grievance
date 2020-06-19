@@ -33,6 +33,8 @@ urlpatterns = [
     path('admin/transfer/<int:cid>/', views.transfer, name='transfer'),
     path('admin/principalComplains/', views.principalComplains, name='principalComplains'),
     path('admin/principalDashboard/', views.principaldashboard, name='principaldashboard'),
+    path('student/complain/like/',views.like,name='like'),
+    path('student/complain/collegefeed/',views.collegefeed,name='collegefeed'),
 
 
 
