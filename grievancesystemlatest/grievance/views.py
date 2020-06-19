@@ -199,12 +199,10 @@ def loginAdmin(request):
                 g=group.name
                 if g == 'faculty':
                     login(request,user)
-                    if request.user.admin.designation == 'Faculty':
-                        return redirect('admindashboard')
-                    elif request.user.admin.designation == 'Principal':
+                    if request.user.admin.designation == 'Principal':
                         return redirect('principaldashboard')
                     else:
-                        messages.info(request, f'Some error occured')    
+                        return redirect('admindashboard')    
 
 
                 else:
