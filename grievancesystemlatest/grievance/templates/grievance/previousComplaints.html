@@ -57,29 +57,5 @@
    
     
 </div>
-<script type="text/javascript">
-$(document).ready(function(event){
-  $(document).on('click','#likebutton',function(event){
-    event.preventDefault();
-    var pk = $(this).attr('value');
-    $.ajax({
-      type:'GET',
-      url:'{% url "like" %}',
-      data:{'cid': pk,
 
-      },
-      success:function(response){
-        $('#count' + pk).load(location.href + " #count" + pk);
-      },
-      error:function(response){
-        alert("Not done");
-      }
-
-    });
-
-  });
-
-});
-
-</script>
 {% endblock content %}

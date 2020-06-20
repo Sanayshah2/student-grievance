@@ -666,6 +666,11 @@ def transfer(request,cid):
         complain.save()
         return redirect('admindashboard')
 
+
+
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def principalComplains(request):
     pcollege = request.user.admin.college
     complains = Complain.objects.filter(college = pcollege,transfer = True)
@@ -674,6 +679,9 @@ def principalComplains(request):
     }
     return render(request,'grievance/principalComplains.html',context)
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def principaldashboard(request):
     complains=Complain.objects.filter(college=request.user.admin.college)
     compcomplains=Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0),branch='Computer',college=request.user.admin.college)
@@ -756,6 +764,9 @@ def principaldashboard(request):
             complain1.save()
             return redirect('previousComplaints')'''
 
+@login_required(login_url='/login/student/')
+@student_required
+@studentprofile_required
 def collegefeed(request):
     complains=Complain.objects.filter(college=request.user.student.college)
     context={

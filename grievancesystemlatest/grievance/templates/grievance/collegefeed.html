@@ -15,59 +15,62 @@
         
 
       
-<div class="content" style="margin-bottom: 30px;">
- 
-  <div >
-    <h3  style="font-weight: bold;animation-delay: 0.1s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">College feed</h2>
+
+<!--Content from here-->
+<div class="content">
+  <h3  style="font-weight: bold;animation-delay: 0.1s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">College feed</h3>
     <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.1s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
     {% if complains %}
-  
-  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
     {% for p in complains %}
-    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
-      <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-        
-     
-      <small>
-        
-        <span id="button{{p.id}}">
-          {% if user in p.likes.all %}
-          <a id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="fas fa-thumbs-up"></i></a>
-          {% else %}
-          <a id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="far fa-thumbs-up"></i></a>
-          {% endif %}
-        </span>
-          <span id="count{{p.id}}">{{p.total_likes}}</span>
-             
-        <span style="margin-right: 15px;margin-left: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
-        {% if p.status == 'Solved' %}
-        <span style="color: green;font-weight: bold;" >{{p.status}}</span>
-        {% elif p.status == 'Rejected' %}
-        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
-        {% elif p.status == 'In Progress' %}
-        <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
-        {% else %}
-        <span style="font-weight: bold;" >{{p.status}}</span>
-        {% endif %}
-        <span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+    <div style="margin-bottom: 20px;margin-top: 30px;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp" >
+    <div class="card">
+      <h6 style="font-weight: bold;">{{p.complain_heading}}</h6>
+      <p style="font-style: italic;">{{p.complain_content}}</p>  
 
     </div>
-    {% endfor %}
+    <div style="margin: 10px;margin-left: 12px;">
+    <span id="button{{p.id}}">
+      {% if user in p.likes.all %}
+      <a id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="fas fa-thumbs-up"></i></a>
+      {% else %}
+      <a id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="far fa-thumbs-up"></i></a>
+      {% endif %}
+    </span>
+      <span id="count{{p.id}}" style="font-weight: bold;">{{p.total_likes}}</span>
+    </div>
+    <div style="margin-left: 10px;" >    
+      <small style="">{{p.date_posted|date:"M d, Y"}}</small><br>
+      <small style="color: gray;">For: {{p.branch}} Branch</small>
+  <small>
+      
+      {% if p.status == 'Solved' %}
+      <p style="color: green;font-weight: bold;" >{{p.status}}</p>
+      {% elif p.status == 'Rejected' %}
+      <p style="color: red;font-weight: bold;" >{{p.status}}</p>
+      {% elif p.status == 'In Progress' %}
+      <p style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</p>
+      {% else %}
+      <p style="font-weight: bold;" >{{p.status}}</p>
+      {% endif %}
+    
+    </small>
   </div>
+
+  </div>
+  <hr>
+    {% endfor %}
     {% else %}
-    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.4s;">
-      <p class='text-muted'>No Complains to display</p>
-
-    </div>
-  {% endif %}
-
-  
+    <p style="font-style: italic;">No complains to display</p>
+    {% endif %}
 
 </div>
+
+
+
 
    
     
-</div>
+
 
 <script type="text/javascript">
 $(document).ready(function(event){
