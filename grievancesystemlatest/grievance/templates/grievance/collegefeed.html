@@ -40,8 +40,8 @@
       {% else %}
       <a id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 30px;" ><i class="far fa-thumbs-up" style="color: darkgrey;"></i></a>
       {% endif %}
-    </span>
-      <span id="count{{p.id}}" style="font-weight: bold;">{{p.total_likes}}</span>
+    
+      <span  style="font-weight: bold;">{{p.total_likes}}</span></span>
     </div>
     <div style="margin-left: 10px;" >    
       <small style="">{{p.date_posted|date:"M d, Y"}}</small><br>
@@ -89,7 +89,7 @@ $(document).ready(function(event){
 
       },
       success:function(response){
-        $('#count' + pk).load(location.href + " #count" + pk);
+        
         $('#button' + pk).load(location.href + " #button" + pk);
       },
       error:function(response){
