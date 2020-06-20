@@ -26,6 +26,18 @@ import requests
 from operator import itemgetter
 
 
+def likecomplain(request):
+    if request.method == 'GET':
+        cid=request.GET.get('cid')
+        complain=Complain.objects.get(id=cid)
+        if complain.likes.filter(id = request.user.id).exists() :
+            complain.likes.remove(request.user)
+        else:
+            complain.likes.add(request.user)
+        return redirect('collegefeed')
+
+
+
 
 
 
@@ -729,7 +741,7 @@ def principaldashboard(request):
 
     return render(request,'grievance/principaldashboard.html',context)
 
-def like(request):
+'''def like(request):
     if request.method == 'GET':
         cid = request.GET.get('cid')
         student = Student.objects.get(user = request.user)
@@ -742,7 +754,7 @@ def like(request):
         else:
             complain1.like_count = complain1.like_count+1
             complain1.save()
-            return redirect('previousComplaints')
+            return redirect('previousComplaints')'''
 
 def collegefeed(request):
     complains=Complain.objects.filter(college=request.user.student.college)

@@ -26,18 +26,9 @@
     {% for p in complains %}
     <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
       <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-        
+      
      
       <small>
-        
-        <span id="button{{p.id}}">
-          {% if user in p.likes.all %}
-          <span id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" ><i class="fas fa-thumbs-up" style="font-size: 18px;color: rgb(80, 80, 255);" ></i></span>
-          {% else %}
-          <span id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" ><i class="far fa-thumbs-up" style="font-size: 18px;color: rgb(80, 80, 255);"></i></span>
-          {% endif %}
-        </span>
-          <span id="count{{p.id}}">{{p.total_likes}}</span>
              
         <span style="margin-right: 15px;margin-left: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
         {% if p.status == 'Solved' %}
@@ -68,7 +59,7 @@
    
     
 </div>
-
+<!--
 <script type="text/javascript">
 $(document).ready(function(event){
   $(document).on('click','#likebutton',function(event){
@@ -76,13 +67,12 @@ $(document).ready(function(event){
     var pk = $(this).attr('value');
     $.ajax({
       type:'GET',
-      url:'{% url "likecomplain" %}',
+      url:'{% url "like" %}',
       data:{'cid': pk,
 
       },
       success:function(response){
         $('#count' + pk).load(location.href + " #count" + pk);
-        $('#button' + pk).load(location.href + " #button" + pk);
       },
       error:function(response){
         alert("Not done");
@@ -94,6 +84,5 @@ $(document).ready(function(event){
 
 });
 
-</script>
-
+</script>-->
 {% endblock content %}

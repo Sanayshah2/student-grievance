@@ -128,7 +128,10 @@ class Complain(models.Model):
     response = models.TextField(default='')
     related_to = models.CharField(choices = related_to_choices, default='', max_length = 20, verbose_name = 'Complain Related to')
     transfer = models.BooleanField(default=False)
-    like_count=models.IntegerField(default=0)
+    likes=models.ManyToManyField(User,related_name='complain')
+
+    def total_likes(self):
+        return self.likes.count()
 
     
 
@@ -136,5 +139,5 @@ class Complain(models.Model):
         ordering=['-date_posted']
 
 class Like(models.Model):
-    complain=models.ForeignKey(Complain,on_delete=models.CASCADE,default='')
+    complain=models.ForeignKey(Complain,on_delete=models.CASCADE,default='',related_name='complain')
     liker=models.ForeignKey(Student,on_delete=models.CASCADE,default='')
