@@ -27,14 +27,14 @@ from operator import itemgetter
 
 
 def likecomplain(request):
-    if request.method == 'GET':
-        cid=request.GET.get('cid')
-        complain=Complain.objects.get(id=cid)
-        if complain.likes.filter(id = request.user.id).exists() :
-            complain.likes.remove(request.user)
-        else:
-            complain.likes.add(request.user)
-        return redirect('collegefeed')
+    
+    cid=request.GET.get('cid')
+    complain=Complain.objects.get(id=cid)
+    if complain.likes.filter(id = request.user.id).exists() :
+        complain.likes.remove(request.user)
+    else:
+        complain.likes.add(request.user)
+    return redirect('collegefeed')
 
 
 
