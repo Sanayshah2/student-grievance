@@ -32,9 +32,9 @@
         
         <span id="button{{p.id}}">
           {% if user in p.likes.all %}
-          <span id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" ><i class="fas fa-thumbs-up" style="font-size: 18px;color: rgb(80, 80, 255);" ></i></span>
+          <button id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" >dislike</button>
           {% else %}
-          <span id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" ><i class="far fa-thumbs-up" style="font-size: 18px;color: rgb(80, 80, 255);"></i></span>
+          <button id="likebutton"  name="cid" value="{{p.id}}" type="submit" href={% url 'likecomplain' %} style="margin-right: 8px;" >like</button>
           {% endif %}
         </span>
           <span id="count{{p.id}}">{{p.total_likes}}</span>
