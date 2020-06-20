@@ -88,6 +88,9 @@
       data:{'cid': pk,
 
       },
+      beforeSend:function(xhr){
+        $('#button' + pk).html('...');
+      },
       success:function(response){
         
         $('#button' + pk).load(location.href + " #button" + pk);
