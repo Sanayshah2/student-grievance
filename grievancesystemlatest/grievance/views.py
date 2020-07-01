@@ -646,7 +646,7 @@ def admin_editprofile(request):
 @adminprofile_required
 def complain_history(request):
     admin = Admin.objects.get(user = request.user)
-    complains = Complain.objects.filter(receiver = admin)
+    complains = Complain.objects.filter(receiver = admin) 
     return render (request, 'grievance/admin_complain_history.html', {'complains':complains, 'admin_complains_active':'active'})
 
 
@@ -673,9 +673,12 @@ def transfer(request,cid):
 @adminprofile_required
 def principalComplains(request):
     pcollege = request.user.admin.college
-    complains = Complain.objects.filter(college = pcollege,transfer = True)
+    vcomplains = Complain.objects.filter(college = pcollege,transfer = True, status = 'Viewed')
+    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ))
     context={
-        'complains':complains,
+        'vcomplains' : vcomplains,
+        'my_complains' : 'active',
+        'srtcomplains' : srtcomplains
     }
     return render(request,'grievance/principalComplains.html',context)
 
@@ -745,6 +748,7 @@ def principaldashboard(request):
         'cy':cy,
         'diff':diff,
         'months':months,
+        'pcomplains' : 'active'
     }
 
     return render(request,'grievance/principaldashboard.html',context)
@@ -774,3 +778,24 @@ def collegefeed(request):
         'collegefeed_active':'active',
     }
     return render(request,'grievance/collegefeed.html',context)
+
+
+def memberslist(request):
+    admin = Admin.objects.filter(college = request.user.admin.college)
+    counts = {}
+    for x in admin:
+        counts[f'{x.user.username}'] = Complain.objects.filter(receiver = x).count()
+    print(counts)    
+    return render(request, 'grievance/members_list.html', {'members_list':'active', 'admins':admin,'counts':counts})
+
+def issue_warning(request, myid):
+        admin = Admin.objects.get(user = myid)
+        mail_subject = 'Warning'
+        message = 'This email has been sent to you to bring in to your notice that many complains have been written into your department. Please look after it.\n\nPrincipal.' 
+        to_email = admin.user.email
+        email = EmailMessage(
+                mail_subject, message, to=[to_email]
+        )
+        email.send()
+        messages.info(request, 'Warning issued successfully!')
+        return redirect('members_list')

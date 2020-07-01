@@ -1,0 +1,75 @@
+{% extends 'grievance/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% include 'grievance/adminsidebar.html' %}
+      
+<div class="content" style="margin-bottom: 30px;">
+    {% if messages %}
+    {% for x in messages %}
+            <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" style="font-size:20px">×</span>
+              </button><center>{{x}}</center>
+            </div>
+     {% endfor %}
+ {% endif %}
+  <div >
+    <h4  style="font-weight: bold;animation-delay: 0.1s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">Members List</h2>
+    <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.1s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    {% if admins %}
+  
+  <div class="animated animatedFadeInUp fadeInUp" style="padding: 17px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        <div class='row'>
+            <div class='col-4'>
+        <span style="font-weight: bold;">Name</span>
+            </div>
+            <div class='col-4'>
+            <span style="font-weight: bold;">Designation</span>
+            </div>
+            <div class='col-4'>
+                <span style="font-weight: bold;">Give a Warning</span>
+                </div>
+        </div>
+
+
+          <span style="color: green;font-weight: bold;" >{{r}}</span>
+          {% if p.status == 'Rejected' %}
+          <span style="color: red;font-weight: bold;" >{{p.status}}</span>
+          {% elif p.status == 'In Progress' %}
+          <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
+          {% else %}
+          <span style="font-weight: bold;" >{{p.status}}</span>
+          {% endif %}
+         </small>
+  
+      </div>
+      <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">    {% for p in admins %}
+    <div class='row' style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+    <div class='col-4'>
+      <span>{{p.user.first_name}} {{p.user.last_name}}</span>
+        </div>
+        <div class="col-4">
+        <span>{{p.designation}}{% if p.branch %}({{p.branch}}){% endif %}</span>
+        </div>
+        <span style="color: green;font-weight: bold;" >{{r}}</span>
+        {% if p.status == 'Rejected' %}
+        <span style="color: red;font-weight: bold;" >{{p.status}}</span>
+        {% elif p.status == 'In Progress' %}
+        <span style="color:rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span>
+        {% else %}
+        <span style="font-weight: bold;" >{{p.status}}</span>
+        {% endif %}
+        <div class="col-4">
+        <span ><a href="/admin/members_list/issue_warning/{{p.user.id}}/">Issue Warning</a></span>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+    {% else %}
+    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.4s;">
+      <p class='text-muted'>No members to display</p>
+
+    </div>
+  {% endif %}
+
+{% endblock content %}

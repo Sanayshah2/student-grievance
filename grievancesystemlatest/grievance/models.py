@@ -133,7 +133,6 @@ class Complain(models.Model):
     def total_likes(self):
         return self.likes.count()
 
-    
 
     class Meta:
         ordering=['-date_posted']
