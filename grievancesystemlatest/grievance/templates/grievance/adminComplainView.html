@@ -36,7 +36,7 @@
 
     </div><br>
     {% if user.admin.designation == 'Principal' %}
-    {% if complain.transfer and complain.status == 'Viewed'%}
+    {% if complain.transfer and complain.status == 'Viewed' or complain.status == 'In Progress' %}
     <div class="card">
         <h4 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid red ;text-align: center;">Change Status and Response</h4><br>
         <form method='POST' >
