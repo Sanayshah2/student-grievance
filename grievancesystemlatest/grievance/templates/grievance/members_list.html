@@ -44,6 +44,7 @@
   
       </div>
       <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.4s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">    {% for p in admins %}
+      {% if p.designation != 'Principal' %}
     <div class='row' style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
     <div class='col-4'>
       <span>{{p.user.first_name}} {{p.user.last_name}}</span>
@@ -63,6 +64,7 @@
         <span ><a href="/admin/members_list/issue_warning/{{p.user.id}}/">Issue Warning</a></span>
         </div>
     </div>
+    {% endif %}
     {% endfor %}
   </div>
     {% else %}
