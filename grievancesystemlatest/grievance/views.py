@@ -782,11 +782,7 @@ def collegefeed(request):
 
 def memberslist(request):
     admin = Admin.objects.filter(college = request.user.admin.college)
-    counts = {}
-    for x in admin:
-        counts[f'{x.user.username}'] = Complain.objects.filter(receiver = x).count()
-    print(counts)    
-    return render(request, 'grievance/members_list.html', {'members_list':'active', 'admins':admin,'counts':counts})
+    return render(request, 'grievance/members_list.html', {'members_list':'active', 'admins':admin})
 
 def issue_warning(request, myid):
         admin = Admin.objects.get(user = myid)
