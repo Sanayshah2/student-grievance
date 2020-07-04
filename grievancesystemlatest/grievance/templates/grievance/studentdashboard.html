@@ -28,7 +28,7 @@
     
     <div >
         <h3  style="font-weight: bold;animation-delay: 0.2s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">Student Dashboard</h2>
-        <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp"></div>
+        <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp"></div>
       </div>   <br> <br>
       <div  style="text-align: center;padding-top: 2%;padding-bottom: 50px;border-bottom: 1px solid lightgray;">
         <div class="row">
@@ -40,7 +40,7 @@
           </div> 
           <div class="col-4 animated animatedFadeInUp fadeInUp" style="animation-delay: 0.6s;" >
             
-            <i class="fas fa-comment-slash fa-4x" style="color: rgb(255, 80, 80);"></i><br><br>
+            <i class="fas fa-comment-slash fa-4x" style="color: rgb(255, 40, 40);"></i><br><br>
             <h3><span class="counter" style="font-weight: bold;">{{r}}</span></h1>
             <h6>Rejected Complains</h3>
             
@@ -65,12 +65,12 @@ time: 1000,
  
             <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
               <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Solved Complains</h2>
-              <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+              <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
               {% if scomplains %}
             
             <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
               {% for p in scomplains %}
-              <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+              <div style="padding-bottom: 10px;margin-bottom: 10px;">
                 <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
                 <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: green;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -88,12 +88,12 @@ time: 1000,
           </div>
           <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
             <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Transferred Complains</h2>
-            <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+            <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
             {% if tcomplains %}
           
           <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
             {% for p in tcomplains %}
-            <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+            <div style="padding-bottom: 10px;margin-bottom: 10px;">
               <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
               <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(92, 92, 92);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: green;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -112,12 +112,12 @@ time: 1000,
            
           <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
             <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Rejected Complains</h2>
-            <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+            <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
             {% if rcomplains %}
           
           <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
             {% for p in rcomplains %}
-            <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+            <div style="padding-bottom: 10px;margin-bottom: 10px;">
               <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
               <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(83, 83, 83);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: red;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -137,12 +137,12 @@ time: 1000,
 
       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
         <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complains in progress</h2>
-        <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+        <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
         {% if ipcomplains %}
       
       <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in ipcomplains %}
-        <div style="margin-bottom: 10px;border-bottom: 1px solid lightgray;padding-bottom: 10px">
+        <div style="margin-bottom: 10px;padding-bottom: 10px">
           <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
           <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(83, 83, 83);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="font-weight: bold;color: rgb(168, 168, 28);">{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -163,12 +163,12 @@ time: 1000,
 
         <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
           <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Viewed Complains</h2>
-          <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+          <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
           {% if vcomplains %}
         
         <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
           {% for p in vcomplains %}
-          <div style="margin-bottom: 10px;border-bottom: 1px solid lightgray;padding-bottom: 10px">
+          <div style="margin-bottom: 10px;padding-bottom: 10px">
             <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
             <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(83, 83, 83);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="font-weight: bold;">{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
@@ -187,12 +187,12 @@ time: 1000,
       </div>
       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
         <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Pending Complains</h2>
-        <div style="border-bottom: 3px solid rgb(57, 120, 255);width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+        <div style="border-bottom: 3px solid #10BBE5;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
         {% if pcomplains %}
       
       <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in pcomplains %}
-        <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+        <div style="padding-bottom: 10px;margin-bottom: 10px;">
           <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
           <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(83, 83, 83);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="font-weight: bold;">{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
