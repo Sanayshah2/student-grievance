@@ -76,3 +76,8 @@ class EditAdmin(ModelForm):
     class Meta:
         model = Admin
         fields = ['designation', 'college', 'branch']        
+
+class ProfilePicUpload(ModelForm):
+    class Meta:
+        model = Student
+        fields = ['image']

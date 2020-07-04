@@ -73,6 +73,8 @@ class Student(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE,default='')
     college=models.CharField(max_length=300,default='',choices=college_choices)
     branch=models.CharField(max_length=300,default='',choices=branch_choices)
+    image = models.ImageField(upload_to='profile_pics', default='profile_pics/default.jpg', verbose_name='Profile Picture')
+
 
     def __str__(self):
         return f"{self.user.username} : {self.branch}'s Student"

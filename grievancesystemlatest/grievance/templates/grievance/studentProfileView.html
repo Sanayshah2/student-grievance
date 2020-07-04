@@ -19,7 +19,13 @@
 
 <br>
 <div class="card">
-  <center><img class="rounded-circle" src="{% static "grievance/images/icon3.png" %}" style="height: 200px;width: 200px;" alt="Los Angeles"></center>
+  <center><img class="rounded-circle" src="{{user.student.image.url}}" style="height: 200px;width: 200px;" alt="{{user.username}}" title='{{user.first_name}} {{user.last_name}}'>
+  <form method = 'POST' enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{form|crispy}}
+    <button class='btn btn-primary' type="submit">Change Picture</button>  
+  </form>
+  </center>
   <br><hr><br>
   <div class="row">
       <div class="col-12 col-md-6"><p ><span style="font-weight: bold;">Full Name: </span>{{a.user.first_name}} {{a.user.last_name}}.</p></div>

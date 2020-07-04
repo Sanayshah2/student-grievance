@@ -62,7 +62,7 @@
     {% for p in srtcomplains %}
     <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
       <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-      <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: red;"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
+      <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: darkgray;"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span>
         {% if p.status == 'Solved' %}
         <span style="color: green;font-weight: bold;" >{{p.status}}</span>
         {% elif p.status == 'Rejected' %}

@@ -588,6 +588,14 @@ def adminProfileView(request):
 @studentprofile_required
 def studentProfileView(request):
     student=Student.objects.get(user=request.user)
+    if request.method == 'POST':
+        form = ProfilePicUpload(request.POST, request.FILES, instance = student)
+        if form.is_valid():
+            test = form.save(commit = False)
+            student.image = test.image
+            student.save()
+    else:
+        form = ProfilePicUpload(instance = student)      
     tcomplains=Complain.objects.filter(sender=student).count()
     rcomplains=Complain.objects.filter(sender=student,status='Rejected').count()
     scomplains=Complain.objects.filter(sender=student,status='Solved').count()
@@ -596,7 +604,8 @@ def studentProfileView(request):
         'scomplains':scomplains,
         'rcomplains':rcomplains,
         'tcomplains':tcomplains,
-        'sprofile_active':'active'
+        'sprofile_active':'active',
+        'form': form
 
     }
     return render(request,'grievance/studentProfileView.html',context)
