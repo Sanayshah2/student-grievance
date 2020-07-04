@@ -27,25 +27,25 @@
      {% endif %}
     
     <div >
-        <h3  style="font-weight: bold;animation-delay: 0.2s;margin-top: 30px;" class="animated animatedFadeInUp fadeInUp">Student Dashboard</h2>
-        <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp"></div>
+        <h3  style="font-weight: bold;;margin-top: 30px;" class="">Student Dashboard</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;" class=""></div>
       </div>   <br> <br>
       <div  style="text-align: center;padding-top: 2%;padding-bottom: 50px;border-bottom: 1px solid lightgray;">
         <div class="row">
-          <div class="col-4 animated animatedFadeInUp fadeInUp" style="animation-delay: 0.4;" >
+          <div class="col-4 " style=";" >
             <i class="fas fa-laugh-wink fa-5x" style="color: rgb(45, 153, 45);" ></i><br><br>
             <h3><span class="counter" style="font-weight: bold;">{{s}}</span></h1>
             <h6>Solved Complains</h3>
             
           </div> 
-          <div class="col-4 animated animatedFadeInUp fadeInUp" style="animation-delay: 0.6s;" >
+          <div class="col-4 " style=";" >
             
             <i class="fas fa-frown fa-5x" style="color: rgb(255, 40, 40);"></i><br><br>
             <h3><span class="counter" style="font-weight: bold;">{{r}}</span></h1>
             <h6>Rejected Complains</h3>
             
           </div>
-          <div class="col-4 animated animatedFadeInUp fadeInUp" style="animation-delay: 0.8s;">
+          <div class="col-4 " style="">
             <i class="fas fa-stopwatch-20 fa-5x" style="color: #0D98BA;" ></i><br><br>
             <h3><span class="counter" style="font-weight: bold;">{{p}}</span></h1>
             <h6>Pending Complains</h3>
@@ -64,11 +64,11 @@ time: 1000,
 
  
             <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-              <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Solved Complains</h2>
-              <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+              <h4  style="font-weight: bold;;margin-top: 20px;" class="">Solved Complains</h2>
+              <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
               {% if scomplains %}
             
-            <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+            <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
               {% for p in scomplains %}
               <div style="padding-bottom: 10px;margin-bottom: 10px;">
                 <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -78,7 +78,7 @@ time: 1000,
               {% endfor %}
             </div>
               {% else %}
-              <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+              <div class="" style="padding-bottom: 10px;;">
                 <p class='text-muted'>No Complains to display</p>
 
               </div>
@@ -87,11 +87,11 @@ time: 1000,
             
           </div>
           <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-            <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Transferred Complains</h2>
-            <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+            <h4  style="font-weight: bold;;margin-top: 20px;" class="">Transferred Complains</h2>
+            <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
             {% if tcomplains %}
           
-          <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+          <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
             {% for p in tcomplains %}
             <div style="padding-bottom: 10px;margin-bottom: 10px;">
               <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -101,7 +101,7 @@ time: 1000,
             {% endfor %}
           </div>
             {% else %}
-            <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+            <div class="" style="padding-bottom: 10px;;">
               <p class='text-muted'>No Complains to display</p>
 
             </div>
@@ -111,11 +111,11 @@ time: 1000,
         </div>
            
           <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-            <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Rejected Complains</h2>
-            <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+            <h4  style="font-weight: bold;;margin-top: 20px;" class="">Rejected Complains</h2>
+            <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
             {% if rcomplains %}
           
-          <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+          <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
             {% for p in rcomplains %}
             <div style="margin-bottom:20px;">
               <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -125,7 +125,7 @@ time: 1000,
             {% endfor %}
           </div>
             {% else %}
-            <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+            <div class="" style="padding-bottom: 10px;;">
               <p class='text-muted'>No Complains to display</p>
 
             </div>
@@ -136,11 +136,11 @@ time: 1000,
       </div>
 
       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-        <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complains in progress</h2>
-        <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Complains in progress</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
         {% if ipcomplains %}
       
-      <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in ipcomplains %}
         <div style="margin-bottom: 10px;padding-bottom: 10px">
           <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -150,7 +150,7 @@ time: 1000,
         {% endfor %}
       </div>
         {% else %}
-        <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+        <div class="" style="padding-bottom: 10px;;">
           <p class='text-muted'>No Complains to display</p>
 
         </div>
@@ -162,11 +162,11 @@ time: 1000,
 
 
         <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-          <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Viewed Complains</h2>
-          <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+          <h4  style="font-weight: bold;;margin-top: 20px;" class="">Viewed Complains</h2>
+          <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
           {% if vcomplains %}
         
-        <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+        <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
           {% for p in vcomplains %}
           <div style="margin-bottom: 10px;padding-bottom: 10px">
             <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -176,7 +176,7 @@ time: 1000,
           {% endfor %}
         </div>
           {% else %}
-          <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+          <div class="" style="padding-bottom: 10px;;">
             <p class='text-muted'>No Complains to display</p>
 
           </div>
@@ -186,11 +186,11 @@ time: 1000,
         
       </div>
       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-        <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Pending Complains</h2>
-        <div style="border-bottom: 3px solid #0D98BA;width:30%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Pending Complains</h2>
+        <div style="border-bottom: 3px solid #0D98BA;width:30%;;margin-bottom: 20px;" class=""></div>
         {% if pcomplains %}
       
-      <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in pcomplains %}
         <div style="padding-bottom: 10px;margin-bottom: 10px;">
           <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
@@ -200,7 +200,7 @@ time: 1000,
         {% endfor %}
       </div>
         {% else %}
-        <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+        <div class="" style="padding-bottom: 10px;;">
           <p class='text-muted'>No Complains to display</p>
 
         
