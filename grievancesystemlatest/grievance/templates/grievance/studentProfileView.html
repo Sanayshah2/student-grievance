@@ -20,11 +20,6 @@
 <br>
 <div class="card">
   <center><img class="rounded-circle" src="{{user.student.image.url}}" style="height: 200px;width: 200px;" alt="{{user.username}}" title='{{user.first_name}} {{user.last_name}}'>
-  <form method = 'POST' enctype="multipart/form-data" >
-    {% csrf_token %}
-    {{form.image}}
-    <button class='btn btn-primary' type="submit">Change Picture</button>  
-  </form>
   </center>
   <br><hr><br>
   <div class="row">
