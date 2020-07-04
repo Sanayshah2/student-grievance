@@ -8,7 +8,10 @@ def is_logged(view_func):
             if request.user.is_authenticated:
                 group = Group.objects.get(user = request.user)
                 if group.name == 'faculty':
-                    return redirect('admindashboard')
+                     if request.user.admin.designation == 'Principal':
+                        return redirect('principaldashboard')
+                    else:    
+                        return redirect('admindashboard')
                 else:
                     return redirect('studentdashboard')
             else:
