@@ -4,9 +4,9 @@
 {% block content %}
 {% include 'grievance/adminsidebar.html' %}
 <div class="content">
-    <h3 class='animated animatedFadeInUp fadeInUp' style="animation-delay: 0.3s;margin-top: 20px;font-weight: bold;">Edit Your Profile</h3>
-    <div class='animated animatedFadeInUp fadeInUp' style='animation-delay: 0.3s;border-bottom: 3px solid red;margin-bottom: 20px;width: 40%;'></div>
-         <form method="POST" class='animated animatedFadeInUp fadeInUp' style='animation-delay: 0.5s;'>
+    <h3 class='' style="margin-top: 20px;font-weight: bold;">Edit Your Profile</h3>
+    <div class='' style='border-bottom: 3px solid #D10000;margin-bottom: 20px;width: 40%;'></div>
+         <form method="POST" class='' style=''>
              {% csrf_token %}
              {{form1|crispy}}
              {{form2|crispy}}

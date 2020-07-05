@@ -9,8 +9,11 @@
     }
 
     .navbar{
-   background-color: rgb(197, 0, 0);
- }    
+   background-color: #D10000;
+ }
+ .btn{
+  background-color: #D10000;
+}    
 
  #X{
    color: rgb(0, 0, 0);
@@ -30,13 +33,13 @@
          {% endfor %}
          {% endif %}
          <div class="" style="border: 1px solid lightgray;background-color: whitesmoke;padding: 30px;margin-top: 10%;margin-bottom:10%;text-align: center;border-radius: 10px;">    
-          <h2 style="padding: 15px; font-weight: bold;border-bottom: 2px solid rgb(241, 41, 41);">Admin Login:</h2><br>
+          <h2 style="padding: 15px; font-weight: bold;border-bottom: 2px solid #D10000;">Admin Login:</h2><br>
           <form method="POST">
         
         <div style="text-align: left;">
         {% csrf_token %}
         {{form|crispy}}
-        <a href='{% url 'password_reset' %}' style="color: red;">Forgot your Password?</a>
+        <a href='{% url 'password_reset' %}' style="color: #D10000;">Forgot your Password?</a>
     </div><br>
         <button type="submit" class="btn btn-danger">Login</button><br> <br>
     </form>

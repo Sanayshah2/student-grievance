@@ -8,6 +8,9 @@
   height: 100%;
   overflow: auto;
 }
+.btn{
+  background-color: #D10000;
+}
 
 /* Sidebar links */
 .sidebar a {
@@ -27,20 +30,20 @@
   display: block;
   color: white;
   padding: 15px;
-  background-color: rgb(241, 41, 41);
+  background-color: #D10000;
   font-weight: bold;
 }
 
 /* Active/current link */
 .sidebar a.active {
   background-color: whitesmoke;
-  color: red;
+  color: #D10000;
 }
 
 /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
   background-color: whitesmoke;
-  color: red;
+  color: #D10000;
 }
 
 /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
@@ -63,19 +66,19 @@ div.content {
     padding: 10px;
     border:1px solid rgb(196, 196, 196);
     background-color: whitesmoke;
-    color: red;
+    color: #D10000;
     border-radius: 8px;
     font-size: 12px;
     margin:5px;
     }
     /* Links on mouse-over */
 .sidebar a:hover:not(.active) {
-  background-color: red;
+  background-color: #D10000;
   color: white;
 }
 /* Active/current link */
 .sidebar a.active {
-  background-color: red;
+  background-color: #D10000;
   color: white;
 }
   .sidebar a {float: left;}
@@ -122,8 +125,8 @@ div.content {
                       Are you sure you want to Log Out?
                   </div>
                   <div class="modal-footer">
-                    <a href='#' data-dismiss="modal" class="btn btn-outline-danger">Close</a>
-                      <a href='{% url 'logout_view' %}' class="btn btn-outline-danger">Log Out</a>
+                    <a href='#' data-dismiss="modal" class="btn btn-danger">Close</a>
+                      <a href='{% url 'logout_view' %}' class="btn btn-danger">Log Out</a>
                   </div>
                 </div>
               </div>

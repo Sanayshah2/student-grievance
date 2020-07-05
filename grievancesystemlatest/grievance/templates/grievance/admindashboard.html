@@ -24,10 +24,10 @@
      {% endif %}
   
      <div >
-      <h3  style="font-weight: bold;animation-delay: 0.2s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Admin Dashboard</h2>
-      <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.3s;" class="animated animatedFadeInUp fadeInUp"></div>
+      <h3  style="font-weight: bold;;margin-top: 20px;" class="">Admin Dashboard</h2>
+      <div style="border-bottom: 3px solid #D10000;width:40%;;" class=""></div>
     </div>   <br> <br>
-     <canvas id="columnchart_values" style="padding:15px; width: 900px;height: 240px; background-color: whitesmoke;border: 1px solid lightgrey;border-radius: 10px;" class="col-md-12 col-12"></canvas>
+     <canvas id="columnchart_values" style="animation-delay: 0.2s;padding:15px; width: 900px;height: 240px; background-color: whitesmoke;border: 1px solid lightgrey;border-radius: 10px;" class="col-md-12 col-12"></canvas>
      <script type="text/javascript">
       Chart.defaults.global.defaultFontSize = 12;
       Chart.defaults.global.defaultFontColor = 'black'; 
@@ -205,7 +205,7 @@
                 //     'rgba(153, 102, 255, 0.2)',
                 //     'rgba(255, 159, 64, 0.2)'
                  ,
-                borderColor: 'red'
+                borderColor: '#D10000'
                     // 'rgba(255, 99, 132, 1)',
                     // 'rgba(54, 162, 235, 1)',
                     // 'rgba(255, 206, 86, 1)',
@@ -308,7 +308,7 @@
               {% if diff < 04 and 04 <= cm1 %}
               ["April {{cy1}}", {{months.04}}, 
               {% if months.04 >= 2 %}
-              "color: red"
+              "color: #D10000"
               {% else %}
               "color: green"
               {% endif %}
@@ -317,7 +317,7 @@
               {% if diff < 05 and 05 <= cm1 %}
               ["May {{cy1}}", {{months.05}}, 
               {% if months.05 >= 2 %}
-              "color: red"
+              "color: #D10000"
               {% else %}
               "color: green"
               {% endif %}
@@ -400,13 +400,13 @@
       {% endif %}
           
       <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-        <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Unaddressed Complains</h2>
-        <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+        <h4  style="font-weight: bold;;margin-top: 20px;" class="">Unaddressed Complains</h2>
+        <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
         {% if vcomplains  %}      
-      <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+      <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
         {% for p in vcomplains %}
         {% if not p.transfer %}
-        <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+        <div style="padding-bottom: 10px;margin-bottom: 10px;;">
           <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
           <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: black;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
 
@@ -416,7 +416,7 @@
       </div>
       
         {% else %}
-        <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+        <div class="" style="padding-bottom: 10px;;">
           <p class='text-muted'>No Complains to display</p>
 
         </div>
@@ -426,14 +426,14 @@
     
   </div>
   <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-    <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Tranferred Complains</h2>
-    <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Tranferred Complains</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
     {% if tcomplains  %}
-  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
     {% for p in tcomplains %}
-    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
       <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% elif p.status == 'Rejected' %}red{% elif p.status == 'In Progress' %}rgb(168, 168, 28){% else %}black{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% elif p.status == 'Rejected' %}#D10000{% elif p.status == 'In Progress' %}rgb(168, 168, 28){% else %}black{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
 
     </div>
     
@@ -441,7 +441,7 @@
   </div>
   
     {% else %}
-    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+    <div class="" style="padding-bottom: 10px;;">
       <p class='text-muted'>No Complains to display</p>
 
     </div>
@@ -452,13 +452,13 @@
 </div>
 
   <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-    <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Complains in Progress</h2>
-    <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Complains in Progress</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
     {% if ipcomplains %}
-  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
     {% for p in ipcomplains %}
     {% if not p.transfer %}
-    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
       <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
       <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: rgb(168, 168, 28);font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
 
@@ -467,7 +467,7 @@
     {% endfor %}
   </div>
     {% else %}
-    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+    <div class="" style="padding-bottom: 10px;;">
       <p class='text-muted'>No Complains to display</p>
 
     </div>
@@ -475,22 +475,22 @@
   </div>
 
   <div  style="padding-top: 20px;padding-bottom: 40px;border-bottom: 1px solid lightgray;">
-    <h4  style="font-weight: bold;animation-delay: 0.6s;margin-top: 20px;" class="animated animatedFadeInUp fadeInUp">Addressed Complains</h2>
-    <div style="border-bottom: 3px solid red;width:40%;animation-delay: 0.8s;margin-bottom: 20px;" class="animated animatedFadeInUp fadeInUp"></div>
+    <h4  style="font-weight: bold;;margin-top: 20px;" class="">Addressed Complains</h2>
+    <div style="border-bottom: 3px solid #D10000;width:40%;;margin-bottom: 20px;" class=""></div>
     {% if scomplains or rcomplains %}
   
-  <div class="animated animatedFadeInUp fadeInUp" style="padding: 20px;animation-delay: 0.8s;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
+  <div class="" style="padding: 20px;;border: 1px solid lightgray;background-color: whitesmoke;border-radius: 10px;">
     {% for p in srcomplains %}
     {% if not p.srcomplains %}
-    <div style="padding-bottom: 10px;margin-bottom: 10px;border-bottom: 1px solid lightgray;">
+    <div style="padding-bottom: 10px;margin-bottom: 10px;;">
       <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% else %}red{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
+      <small><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: {% if p.status == 'Solved' %}green{% else %}#D10000{% endif %};font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/adminComplainView/{{p.id}}/">View</a></span></small>
     </div>
     {% endif %}
     {% endfor %}
   </div>
     {% else %}
-    <div class="animated animatedFadeInUp fadeInUp" style="padding-bottom: 10px;animation-delay: 0.8s;">
+    <div class="" style="padding-bottom: 10px;;">
       <p class='text-muted'>No Complains to display</p>
 
     </div>
