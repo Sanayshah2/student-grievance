@@ -25,7 +25,7 @@
 
 {% include 'grievance/studentsidebar.html' %}
 
-      <div class="content">
+
         {% if messages %}
         {% for x in messages %}
                 <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
@@ -36,6 +36,12 @@
          {% endfor %}
      {% endif %}
      {% if complains_count < 6  %}
+     <div class="content">
+      <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+           <span aria-hidden="true" style="font-size:20px">×</span>
+         </button><center>You can add {{diff}} complain(s) today.</center>
+       </div> 
                 
           <h3 class='' style="margin-top: 30px;font-weight: bold;">Add Complain</h3>
           <div class='' style='border-bottom: 3px solid #0D98BA;margin-bottom: 20px;width: 30%;'></div>

@@ -387,14 +387,16 @@ def admindashboard(request):
 @student_required
 @studentprofile_required
 def addComplain(request):
-    
+
     student=Student.objects.get(user=request.user)
     complains_count=Complain.objects.filter(sender=student,date_posted__date=timezone.now()).count()
+    diff = 6 - complains_count
     if complains_count > 5:
-        messages.info(request,"You have exceeded limit of 5 complains a day!")
+        messages.info(request,"You have exceeded limit of 6 complains a day!")
         messages.info(request, 'Come back again tomorrow.')
         form=ComplainForm()
     else:
+      
         if request.method=='POST':
             form=ComplainForm(request.POST)
             if form.is_valid():
@@ -443,7 +445,7 @@ def addComplain(request):
         else:
             form=ComplainForm()
 
-    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count})
+    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count, 'diff':diff})
 
 
 @login_required(login_url='/login/admins/')
