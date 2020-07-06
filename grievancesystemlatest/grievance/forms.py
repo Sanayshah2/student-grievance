@@ -29,7 +29,7 @@ class ComplainForm(forms.ModelForm):
     class Meta:
         
         model = Complain
-        fields=['complain_heading','complain_content', 'college']
+        fields=['complain_heading','complain_content']
 
 
 

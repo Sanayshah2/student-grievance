@@ -28,13 +28,13 @@
       <div class="content">
         {% if messages %}
         {% for x in messages %}
-        <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186);opacity:rgb(13, 152, 186,0.5) ;border: 2px solid #0D98BA;border-radius: 15px; color: whitesmoke;font-weight: bold;">
+                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="font-size:20px">×</span>
                   </button><center>{{x}}</center>
                 </div>
          {% endfor %}
-         {% endif %}
+     {% endif %}
 
           <h3 class='' style="margin-top: 30px;font-weight: bold;">Add Complain</h3>
           <div class='' style='border-bottom: 3px solid #0D98BA;margin-bottom: 20px;width: 30%;'></div>
@@ -44,7 +44,10 @@
         <form method="POST">
             {% csrf_token %}
             {{form|crispy}}
-  
+            <div class="form-group">
+              <label for="formGroupExampleInput">College<sup>*</sup></label>
+              <input name = "college" value="{{user.student.college}}" type="text" class="form-control" id="formGroupExampleInput" disabled>
+            </div>
             <div class="form-group">
                 <label class="control-label" >Complain Related to<sup>*</sup></label>
     <select onchange='checkIfYes()' class="select form-control" id="related" name="related" required>

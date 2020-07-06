@@ -6,15 +6,15 @@
 
 <div class="content">
 
- {% if messages %}
-        {% for x in messages %}
-                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" style="font-size:20px">×</span>
-                  </button><center>{{x}}</center>
-                </div>
-         {% endfor %}
-         {% endif %}
+  {% if messages %}
+  {% for x in messages %}
+          <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true" style="font-size:20px">×</span>
+            </button><center>{{x}}</center>
+          </div>
+   {% endfor %}
+{% endif %}
 
 
 <br>

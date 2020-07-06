@@ -18,15 +18,15 @@
     <h5 style="text-align: center;margin-top:10px;font-size: 20px; letter-spacing: 0.5px; padding: 10px;" class='alert alert-custom'>Complete your profile. This step is mandatory.</h5>
     <div class='row justify-content-center'>
     <div class="col-md-6 col-12" style="margin-top: 10px;">
-        {% if messages %}
-        {% for x in messages %}
-                <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true" style="font-size:20px">×</span>
-                  </button><center>{{x}}</center>
-                </div>
-         {% endfor %}
-         {% endif %}
+      {% if messages %}
+      {% for x in messages %}
+              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true" style="font-size:20px">×</span>
+                </button><center>{{x}}</center>
+              </div>
+       {% endfor %}
+   {% endif %}
 <div class="card" >
   <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid royalblue ;text-align: center;">Complete Profile</h3>     
     <form method="POST">

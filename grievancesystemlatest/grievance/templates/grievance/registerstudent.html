@@ -18,15 +18,15 @@
 <div class="container"> 
   <div class="row justify-content-center">
     <div class="col-12 col-md-8">   
-    {% if messages %}
-    {% for x in messages %}
-            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
-             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true" style="font-size:20px">×</span>
-              </button><center>{{x}}</center>
-            </div>
-     {% endfor %}
-     {% endif %}
+      {% if messages %}
+      {% for x in messages %}
+              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true" style="font-size:20px">×</span>
+                </button><center>{{x}}</center>
+              </div>
+       {% endfor %}
+   {% endif %}
      <div class="" style="background-color: whitesmoke;margin-top: 10%;margin-bottom: 10%;border-radius: 10px;padding: 20px;text-align: center; border: 1px solid lightgray;">
         <h2 style="padding: 20px;border-bottom: 2px solid #0D98BA;font-weight: bold;">Student Signup:</h2><br>
         <div style="padding: 10px;">

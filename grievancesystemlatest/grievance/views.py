@@ -392,7 +392,7 @@ def addComplain(request):
         form=ComplainForm(request.POST)
         if form.is_valid():
             instance=form.save(commit=False)
-            college=form.cleaned_data.get('college')
+            college = request.user.student.college
             related_to=request.POST.get('related')
             if related_to == 'Faculty':
                  branch=request.POST.get('branches')
