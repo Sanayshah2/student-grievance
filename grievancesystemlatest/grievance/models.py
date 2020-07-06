@@ -135,6 +135,9 @@ class Complain(models.Model):
     def total_likes(self):
         return self.likes.count()
 
+    def __str__(self):
+        return f"{self.college} : {self.branch}"
+
 
     class Meta:
         ordering=['-date_posted']
