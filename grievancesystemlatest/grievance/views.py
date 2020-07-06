@@ -238,6 +238,10 @@ def loginAdmin(request):
 @studentprofile_required
 def studentdashboard(request):
     student= Student.objects.get(user=request.user)
+    count = Complain.objects.filter(date_posted__date=timezone.now(), sender = student).count()
+    print(count)
+    m = Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0), sender = student).count()
+    print(m)
     pcomplains=Complain.objects.filter(sender=student,status='Pending')
     rcomplains=Complain.objects.filter(sender=student,status='Rejected')
     vcomplains=Complain.objects.filter(sender=student,status='Viewed')
@@ -261,6 +265,8 @@ def studentdashboard(request):
         's':s,
         'p':p,
         'v':v,
+        'count':count,
+        'm':m,
         'studentdashboard_active': 'active'
     }
     return render(request,'grievance/studentdashboard.html',context)
