@@ -434,6 +434,7 @@ def addComplain(request):
                         instance.receiver=admin
                         instance.branch = branch
                         instance.related_to = related_to
+                        instance.college = college
                         instance.save()
                         messages.info(request, f'Complain sent to the concerned authority.')
                         return redirect('studentdashboard')
