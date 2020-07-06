@@ -391,7 +391,8 @@ def addComplain(request):
     student=Student.objects.get(user=request.user)
     complains_count=Complain.objects.filter(sender=student,date_posted__date=timezone.now()).count()
     if complains_count > 5:
-        messages.info(request,"You have exceeded limit of 5 complains a day! Come again tomorrow.")
+        messages.info(request,"You have exceeded limit of 5 complains a day!")
+        messages.info(request, 'Kal aa bhosadike!')
         form=ComplainForm()
     else:
         if request.method=='POST':
