@@ -35,12 +35,14 @@
                 </div>
          {% endfor %}
      {% endif %}
-
+        
           <h3 class='' style="margin-top: 30px;font-weight: bold;">Add Complain</h3>
           <div class='' style='border-bottom: 3px solid #0D98BA;margin-bottom: 20px;width: 30%;'></div>
           <div >
         
               <div class='' style="">
+            <div id="form1">
+              {% if complains_count < 6  %}
         <form method="POST">
             {% csrf_token %}
             {{form|crispy}}
@@ -74,9 +76,12 @@
             {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary'>Submit</a>{% else %}<button type="submit" class="btn btn-primary" >Submit</button>{% endif %}
             
         </form>
+        {% endif %}
+      </div>
            
         </div>
           </div>
+
 </div>   
 {% endblock %}
  
