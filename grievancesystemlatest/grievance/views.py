@@ -238,10 +238,6 @@ def loginAdmin(request):
 @studentprofile_required
 def studentdashboard(request):
     student= Student.objects.get(user=request.user)
-    count = Complain.objects.filter(date_posted__date=timezone.now(), sender = student).count()
-    print(count)
-    m = Complain.objects.filter(date_posted__gte=timezone.now().replace(day=1, hour=0,minute=0,second=0,microsecond=0), sender = student).count()
-    print(m)
     pcomplains=Complain.objects.filter(sender=student,status='Pending')
     rcomplains=Complain.objects.filter(sender=student,status='Rejected')
     vcomplains=Complain.objects.filter(sender=student,status='Viewed')
@@ -265,8 +261,6 @@ def studentdashboard(request):
         's':s,
         'p':p,
         'v':v,
-        'count':count,
-        'm':m,
         'studentdashboard_active': 'active'
     }
     return render(request,'grievance/studentdashboard.html',context)
@@ -397,7 +391,7 @@ def addComplain(request):
     student=Student.objects.get(user=request.user)
     complains_count=Complain.objects.filter(sender=student,date_posted__date=timezone.now()).count()
     if complains_count > 5:
-        messages.info(request,"You have exceeded limit of 5 complains a day!")
+        messages.info(request,"You have exceeded limit of 5 complains a day! Come again tomorrow.")
         form=ComplainForm()
     else:
         if request.method=='POST':
