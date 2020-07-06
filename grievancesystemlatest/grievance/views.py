@@ -211,10 +211,16 @@ def loginAdmin(request):
                 g=group.name
                 if g == 'faculty':
                     login(request,user)
-                    if request.user.admin.designation == 'Principal':
-                        return redirect('principaldashboard')
+                    profile=Admin.objects.filter(user=request.user).count()
+                    if profile>0:
+                        if request.user.admin.designation == 'Principal':
+                            return redirect('principaldashboard')
+                        else:
+                            return redirect('admindashboard')
                     else:
-                        return redirect('admindashboard')    
+                        return redirect("adminProfile")
+
+                        
 
 
                 else:
