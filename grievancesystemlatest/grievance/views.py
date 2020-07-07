@@ -690,8 +690,13 @@ def transfer(request,cid):
 @adminprofile_required
 def principalComplains(request):
     pcollege = request.user.admin.college
-    vcomplains = Complain.objects.filter(college = pcollege,transfer = True, status = 'Viewed')
-    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ))
+    admin = Admin.objects.get(college = pcollege, designation = 'Principal')
+    vcomplains = Complain.objects.filter(Q(college = pcollege,transfer = True, status = 'Viewed') | Q(college = pcollege, status = 'Pending', receiver = admin) | Q(college = pcollege, receiver = admin, status = 'Viewed'))
+    for x in vcomplains:
+        if x.status == 'Pending':
+            x.status = 'Viewed'
+            x.save()
+    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ) | Q(college = pcollege, status = 'Solved', receiver = admin) | Q(college = pcollege, status = 'Rejected', receiver = admin) | Q(college = pcollege, status = 'In Progress', receiver = admin))
     context={
         'vcomplains' : vcomplains,
         'my_complains' : 'active',
