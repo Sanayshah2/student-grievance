@@ -2,10 +2,13 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {% include 'grievance/adminsidebar.html' %}
-      <style>
-
-
-      </style>
+<style>
+  .alert-custom{
+  background-color: rgb(209, 0, 0, 0.3);
+  color:rgb(141, 0, 0);
+  font-weight: bold;
+  }
+  </style>
 
 <div style="">
   <script src="https://cdn.jsdelivr.net/npm/chart.9.3/dist/Chart.min.js"></script>
@@ -15,14 +18,13 @@
 
         {% if messages %}
     {% for x in messages %}
-            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 20px; letter-spacing: 0.5px">
+            <div class="alert alert-custom  fade in alert-dismissable show" style="margin-top:18px;font-size: 15px; letter-spacing: 0.5px">
              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true" style="font-size:20px">×</span>
               </button><center>{{x}}</center>
             </div>
      {% endfor %}
      {% endif %}
-  
      <div >
       <h3  style="font-weight: bold;;margin-top: 20px;" class="">Principal Dashboard</h2>
       <div style="border-bottom: 3px solid #D10000;width:40%;;" class=""></div>
@@ -64,13 +66,13 @@
                 {{chemcomplains.count}}
 
                 ],
-                 backgroundColor:[ '#D10000',
-                     'rgba(255, 99, 132)',
-                     'rgba(54, 162, 235)',
-                     'rgba(255, 206, 86)',
-                     'rgba(75, 192, 192)',
-                     'rgba(153, 102, 255)',
-                     'rgba(100, 101, 285)'
+                 backgroundColor:[ 'rgb(209, 0, 0, 0.5)',
+                     'rgba(255, 99, 132, 0.5)',
+                     'rgba(54, 162, 235, 0.5)',
+                     'rgba(255, 206, 86, 0.5)',
+                     'rgba(75, 192, 192, 0.5)',
+                     'rgba(153, 102, 255, 0.5)',
+                     'rgba(100, 101, 285, 0.5)'
                      ]
                 
                  ,
@@ -79,10 +81,11 @@
                      'rgba(54, 162, 235, 1)',
                      'rgba(255, 206, 86, 1)',
                      'rgba(75, 192, 192, 1)',
-                     'rgba(153, 102, 255, 1)'
+                     'rgba(153, 102, 255, 1)',
+                     'rgba(100, 101, 285)'
                      ]
                 ,
-                borderWidth: 1
+                borderWidth: 2
             }]
         },
         options: {
@@ -283,7 +286,7 @@
         options: {
           title: {
                   display: true,
-                  text: 'Number of complains in past 6 months'
+                  text: 'Number of complains in the college in past 6 months'
                 },
             scales: {
                 yAxes: [{

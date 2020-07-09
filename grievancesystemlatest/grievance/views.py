@@ -387,14 +387,16 @@ def admindashboard(request):
 @student_required
 @studentprofile_required
 def addComplain(request):
-    
+
     student=Student.objects.get(user=request.user)
     complains_count=Complain.objects.filter(sender=student,date_posted__date=timezone.now()).count()
+    diff = 6 - complains_count
     if complains_count > 5:
-        messages.info(request,"You have exceeded limit of 5 complains a day!")
+        messages.info(request,"You have exceeded limit of 6 complains a day!")
         messages.info(request, 'Come back again tomorrow.')
         form=ComplainForm()
     else:
+      
         if request.method=='POST':
             form=ComplainForm(request.POST)
             if form.is_valid():
@@ -443,7 +445,7 @@ def addComplain(request):
         else:
             form=ComplainForm()
 
-    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count})
+    return render(request,'grievance/addComplain.html',{'form':form, 'addcomplain_active':'active','complains_count':complains_count, 'diff':diff})
 
 
 @login_required(login_url='/login/admins/')
@@ -688,8 +690,13 @@ def transfer(request,cid):
 @adminprofile_required
 def principalComplains(request):
     pcollege = request.user.admin.college
-    vcomplains = Complain.objects.filter(college = pcollege,transfer = True, status = 'Viewed')
-    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ))
+    admin = Admin.objects.get(college = pcollege, designation = 'Principal')
+    vcomplains = Complain.objects.filter(Q(college = pcollege,transfer = True, status = 'Viewed') | Q(college = pcollege, status = 'Pending', receiver = admin) | Q(college = pcollege, receiver = admin, status = 'Viewed'))
+    for x in vcomplains:
+        if x.status == 'Pending':
+            x.status = 'Viewed'
+            x.save()
+    srtcomplains =  Complain.objects.filter(Q(status = 'Solved', college = pcollege,transfer = True, ) | Q(status = 'Rejected', college = pcollege,transfer = True, ) | Q(status = 'In Progress', college = pcollege,transfer = True, ) | Q(college = pcollege, status = 'Solved', receiver = admin) | Q(college = pcollege, status = 'Rejected', receiver = admin) | Q(college = pcollege, status = 'In Progress', receiver = admin))
     context={
         'vcomplains' : vcomplains,
         'my_complains' : 'active',
