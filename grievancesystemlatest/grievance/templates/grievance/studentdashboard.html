@@ -72,7 +72,7 @@ time: 1000,
               {% for p in scomplains %}
               <div style="padding-bottom: 10px;margin-bottom: 10px;">
                 <h5 style="font-weight: bold;">{{p.complain_heading}}</h4>
-                <small><span style="margin-right: 15px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span><span style="margin-right: 15px;">{{p.date_posted|date:"M d, Y"}}</span><span style="color: green;font-weight: bold;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
+                <small><span style="margin-right: 10px;"><i class="fas fa-thumbs-up" style="color: rgb(94, 94, 94);"></i>  {{p.total_likes}}</span>&bull;<span style="margin-right: 10px;margin-left: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;<span style="color: green;font-weight: bold;margin-left: 10px;" >{{p.status}}</span><span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
               </div>
               {% endfor %}
