@@ -20,7 +20,7 @@
     <div class="col-md-6 col-12" style="margin-top: 10px;">
       {% if messages %}
       {% for x in messages %}
-              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke">
                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true" style="font-size:20px">×</span>
                 </button><center>{{x}}</center>
@@ -28,13 +28,13 @@
        {% endfor %}
    {% endif %}
 <div class="card" >
-  <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid royalblue ;text-align: center;">Complete Profile</h3>     
+  <h3 style="font-weight: bold;padding-bottom: 15px;border-bottom: 2px solid #0D98BA ;text-align: center;">Complete Profile</h3>     
     <form method="POST">
         <div style="text-align: left;">
         {% csrf_token %}
         {{form|crispy}}
     </div>
-        <button type="submit" class="btn btn-primary">Submit</button><br><br>
+        <button type="submit" class="btn btn-primary" style="border-color: #0D98BA;">Submit</button><br><br>
     </form>
    
 </div>
