@@ -17,6 +17,7 @@
 .alert-custom{
   background-color: lightgray;
   color:black;
+  
     }
     .btn{
       background-color: #0D98BA;
@@ -28,7 +29,7 @@
 <div class="content">
         {% if messages %}
         {% for x in messages %}
-        <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;background-color: rgb(99, 99, 99);;border-radius: 25px; color: whitesmoke;">
+        <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;font-size: 15px;">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="font-size:20px">×</span>
                   </button><center>{{x}}</center>
@@ -78,7 +79,7 @@
     </select>    
   </div><br>
 
-            {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary'>Submit</a>{% else %}<button type="submit" class="btn btn-primary" >Submit</button>{% endif %}
+            {% if user.username == 'demostudent' %}<a href='#' class='btn btn-primary' style="background-color: #0D98BA; border-color: #0D98BA;">Submit</a>{% else %}<button type="submit" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Submit</button>{% endif %}
             
         </form>
         {% endif %}

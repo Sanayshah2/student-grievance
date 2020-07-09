@@ -20,7 +20,7 @@
     <div class="col-12 col-md-8">   
       {% if messages %}
       {% for x in messages %}
-              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+              <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;font-weight: bold;background-color: rgb(99, 99, 99);color: whitesmoke;">
                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true" style="font-size:20px">×</span>
                 </button><center>{{x}}</center>
@@ -35,7 +35,7 @@
             {% csrf_token %}
             {{form|crispy}}                
             </div>
-            <button type="submit" class="btn btn-primary" >Sign up</button><br><br>
+            <button type="submit" class="btn btn-primary" style="border-color: #0D98BA; background-color: #0D98BA;">Sign up</button><br><br>
             </form>
             <small class="text-muted">Already registered? </small> <a href={% url "loginStudent" %}>Student Log In</a>
         </div>

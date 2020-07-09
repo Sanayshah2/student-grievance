@@ -65,7 +65,7 @@ class AdminProfileForm(forms.ModelForm):
 class EditStudent(ModelForm):
     class Meta:
         model = Student
-        fields = ['image', 'college', 'branch']
+        fields = ['college', 'branch']
 
 class EditUser(ModelForm):
     class Meta:

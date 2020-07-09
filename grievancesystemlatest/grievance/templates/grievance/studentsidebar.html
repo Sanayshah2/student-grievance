@@ -89,9 +89,7 @@ div.content {
   
 }
 }
-.btn{
-      background-color: #0D98BA;
-    }
+
 
 </style>
 <div class="" style="">
@@ -122,8 +120,8 @@ div.content {
                       Are you sure you want to Log Out?
                   </div>
                   <div class="modal-footer">
-                    <a href='#' class="btn btn-primary" data-dismiss="modal">Close</a>
-                      <a href='{% url 'logout_view' %}'><button type="button" class="btn btn-primary" >Log Out</button></a>
+                    <a href='#' class="btn btn-primary" data-dismiss="modal" style="background-color: #0D98BA; border-color: #0D98BA;">Close</a>
+                      <a href='{% url 'logout_view' %}'><button type="button" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Log Out</button></a>
                   </div>
                 </div>
               </div>
@@ -146,8 +144,8 @@ div.content {
                       Are you sure you want to delete your account? You will lose it permanently.
                   </div>
                   <div class="modal-footer">
-                    <a href='#' class="btn btn-outline-primary" data-dismiss="modal" >Close</a>
-                      <a href='{% url 'deletestudent' %}'><button type="button" class="btn btn-outline-primary">Delete</button></a>
+                    <a href='#' class="btn btn-outline-primary" data-dismiss="modal" style="background-color: #0D98BA; border-color: #0D98BA; color: white;">Close</a>
+                      <a href='{% url 'deletestudent' %}'><button type="button" class="btn btn-outline-primary" style="color:white; background-color: #0D98BA; border-color: #0D98BA;">Delete</button></a>
                   </div>
                 </div>
               </div>

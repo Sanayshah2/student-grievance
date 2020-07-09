@@ -28,25 +28,28 @@
     {% if complains %}
     {% for p in complains %}
     <div style="margin-bottom: 20px;margin-top: 30px;;" class="" >
-    <div class="card-feed">
-      <h6 style="font-weight: bold;margin-bottom: 15px;color: white;">{{p.complain_heading}}</h6>
-      <div style="border-bottom: 1px solid lightgray;margin-bottom:10px ;margin-top:10px ;"></div>
-      <p style="">{{p.complain_content}}</p>  
+    <div class="card-feed" style="background-color: lightgray">
+      <h6 style="font-weight: bold;margin-bottom: 15px;color: black;">{{p.complain_heading}}</h6>
+      <div style="border-bottom: 1px solid black;margin-bottom:10px ;margin-top:10px ;"></div>
+      <p style="color: black;">{{p.complain_content}}</p>  
 
     </div>
     <div style="margin: 10px;margin-left: 12px;">
     <span id="button{{p.id}}">
-      {% if user in p.likes.all %}
-      <a id="likebutton"   name="cid" value="{{p.id}}"  href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="fas fa-thumbs-up" style="color: #0D98BA;"></i></a>
-      {% else %}
-      <a id="likebutton"  name="cid" value="{{p.id}}"  href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" ><i class="far fa-thumbs-up" style="color: darkgray;"></i></a>
-      {% endif %}
-    
+      <a id="likebutton"   name="cid" value="{{p.id}}"  href={% url 'likecomplain' %} style="margin-right: 8px;font-size: 25px;" >
+        {% if user in p.likes.all %}
+            <i class="fas fa-thumbs-up" style="color: #0D98BA;">
+        {% else %}
+            <i class="far fa-thumbs-up" style="color: darkgray;">
+        {% endif %}
+          </i>
+        </a>
+     
       <span  style="font-weight: bold;">{{p.total_likes}}</span></span>
     </div>
     <div style="margin-left: 10px;" >    
       <small style="">{{p.date_posted|date:"M d, Y"}}</small><br>
-      <small style="color: gray;">For: {{p.branch}} Branch</small>
+      <small style="color: gray;">For: {% if p.branch %}{{p.branch}} Branch{% else %}{{p.related_to}}{% endif %}</small>
   <small>
       
       {% if p.status == 'Solved' %}
@@ -90,7 +93,7 @@
 
       },
       beforeSend:function(xhr){
-        $('#button' + pk).html('...');
+        $('#button' + pk).html('');
       },
       success:function(response){
         

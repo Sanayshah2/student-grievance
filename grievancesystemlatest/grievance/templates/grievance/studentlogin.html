@@ -17,7 +17,7 @@
     <div class="col-12 col-md-8">
       {% if messages %}
         {% for x in messages %}
-                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(13, 152, 186,0.5);;border-radius: 15px; color: #1a667a;font-weight: bold;">
+                <div class="alert alert-custom  fade in alert-dismissable show " style="margin-top:18px;font-size: 15px;background-color: rgb(99, 99, 99);color: whitesmoke;font-weight: bold;">
                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true" style="font-size:20px">×</span>
                   </button><center>{{x}}</center>
@@ -34,7 +34,7 @@
              {{form|crispy}}
              <a href='{% url 'password_reset' %}'>Forgot your Password?</a><br>
          </div><br>
-             <button type="submit" class="btn btn-primary" >Login</button><br>  <br>
+             <button type="submit" class="btn btn-primary" style="background-color: #0D98BA; border-color: #0D98BA;">Login</button><br>  <br>
          </form>
          <small class='text-muted'>Don't have an acoount? You can create one in just few steps.</small> <a href={% url "studentRegister" %}>Create Account</a>
         </div>
