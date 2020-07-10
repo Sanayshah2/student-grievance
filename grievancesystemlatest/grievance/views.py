@@ -681,6 +681,7 @@ def transfer(request,cid):
         complain = Complain.objects.get(id = cid)
         complain.transfer = True
         complain.save()
+        messages.info(request, 'Complain transferred to higher authority!')
         return redirect('admindashboard')
 
 
@@ -801,11 +802,16 @@ def collegefeed(request):
     }
     return render(request,'grievance/collegefeed.html',context)
 
-
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def memberslist(request):
     admin = Admin.objects.filter(college = request.user.admin.college)
     return render(request, 'grievance/members_list.html', {'members_list':'active', 'admins':admin})
 
+@login_required(login_url='/login/admins/')
+@admin_required
+@adminprofile_required
 def issue_warning(request, myid):
         admin = Admin.objects.get(user = myid)
         mail_subject = 'Warning'

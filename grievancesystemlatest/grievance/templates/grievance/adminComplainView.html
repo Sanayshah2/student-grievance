@@ -73,7 +73,7 @@
     <a  href='myModaltransfer' data-toggle="modal" data-target="#myModaltransfer" style="padding: 15px;border: 1px solid red;border-radius: 10px;color: red;">Transfer</a>
     </div>
     <div class="modal fade" id="myModaltransfer" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
         
           <!-- Modal content-->
           <div class="modal-content">
@@ -86,10 +86,10 @@
                 Are you sure you want to transfer this complain?
             </div>
             <div class="modal-footer">
-              <a href='#' data-dismiss="modal" class="btn btn-outline-danger">Close</a>
+              <a href='#' data-dismiss="modal" class="btn btn-outline-danger" style="color: white;">Close</a>
               <form method='POST' action="/admin/transfer/{{complain.id}}/">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-outline-danger" style="margin-top: 15px;">Transfer Complain</button>
+                <button type="submit" class="btn btn-outline-danger" style="margin-top: 15px;color: white;">Transfer Complain</button>
             </form>
             </div>
           </div>
