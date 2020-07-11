@@ -30,13 +30,13 @@
       <small> 
         <span style="margin-right: 10px;">{{p.date_posted|date:"M d, Y"}}</span>&bull;
         {% if p.status == 'Solved' %}
-        <span style="color: green;font-weight: bold;margin-left: 10px;" >{{p.status}}</span>
+        <span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgb(0, 128, 0,0.7) ;" >{{p.status}}</span>
         {% elif p.status == 'Rejected' %}
-        <span style="color: red;font-weight: bold;margin-left: 10px;" >{{p.status}}</span>
+        <span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(250, 10, 10, 0.856)  ;" >{{p.status}}</span>
         {% elif p.status == 'In Progress' %}
-        <span style="color:rgb(168, 168, 28);font-weight: bold;margin-left: 10px;" >{{p.status}}</span>
+        <span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(250, 186, 10, 0.856) ;" >{{p.status}}</span>
         {% else %}
-        <span style="font-weight: bold;margin-left: 10px;" >{{p.status}}</span>
+        <span style="color: white;;margin-left: 10px;padding-top:5px;padding-bottom:5px;padding-left:8px;padding-right:8px;border-radius: 15px;background-color:rgba(94, 94, 94, 0.856);" >{{p.status}}</span>
         {% endif %}
         <span style="margin-left: 15px;"><a href="/studentComplainView/{{p.id}}/">View</a></span></small>
 
