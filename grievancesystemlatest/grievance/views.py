@@ -56,7 +56,7 @@ def adminRegister(request):
         if form.is_valid():
             user=form.save(commit=False)
             name = user.username
-            user.is_active = False
+            user.is_active = True
             email = form.cleaned_data.get('email')
             first_name = form.cleaned_data.get('first_name')
             for x in User.objects.all():
@@ -64,22 +64,24 @@ def adminRegister(request):
                     messages.info(request, f'Account with this email already exists.')
                     return redirect('adminRegister')
             user.save()
+            group=Group.objects.get(name='faculty')
+            user.groups.add(group)
             current_site = get_current_site(request)                #Email activation
-            mail_subject = 'Activate your admin account.'
-            message = render_to_string('grievance/acc_adminactive_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
-                'name':name
-            })
-            to_email = email
-            email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
-            email.send()
-            messages.info(request, 'Please confirm your email address to complete the registration')   #Email activation end    
-            return redirect('adminRegister')    
+            # mail_subject = 'Activate your admin account.'
+            # message = render_to_string('grievance/acc_adminactive_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token':account_activation_token.make_token(user),
+            #     'name':name
+            # })
+            # to_email = email
+            # email = EmailMessage(
+            #             mail_subject, message, to=[to_email]
+            # )
+            # email.send()
+            # messages.info(request, 'Please confirm your email address to complete the registration')   #Email activation end    
+            return redirect('loginAdmin')    
     else:
         form=UserFormAdmin()
     return render(request,'grievance/registeradmin.html',{'form':form})
@@ -117,7 +119,7 @@ def studentRegister(request):
         form=UserFormStudent(request.POST)
         if form.is_valid():
             user=form.save(commit=False)
-            user.is_active = False
+            user.is_active = True
             name = user.username
             email = form.cleaned_data.get('email')
             first_name = form.cleaned_data.get('first_name')
@@ -127,23 +129,25 @@ def studentRegister(request):
                     return redirect('studentRegister')
             
             user.save()
+            group=Group.objects.get(name='student')
+            user.groups.add(group)
             print(user.id)
             current_site = get_current_site(request)                #Email activation
-            mail_subject = 'Activate your student account.'
-            message = render_to_string('grievance/acc_studentactive_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid':urlsafe_base64_encode(force_bytes(user.pk)),
-                'token':account_activation_token.make_token(user),
-                'name':name
-            })
-            to_email = email
-            email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
-            email.send()
-            messages.info(request, 'Please confirm your email address to complete the registration')   #Email activation end
-            return redirect('studentRegister')
+            # mail_subject = 'Activate your student account.'
+            # message = render_to_string('grievance/acc_studentactive_email.html', {
+            #     'user': user,
+            #     'domain': current_site.domain,
+            #     'uid':urlsafe_base64_encode(force_bytes(user.pk)),
+            #     'token':account_activation_token.make_token(user),
+            #     'name':name
+            # })
+            # to_email = email
+            # email = EmailMessage(
+            #             mail_subject, message, to=[to_email]
+            # )
+            # email.send()
+            # messages.info(request, 'Please confirm your email address to complete the registration')   #Email activation end
+            return redirect('loginStudent')
     else:
         form=UserFormStudent()
     return render(request,'grievance/registerstudent.html',{'form':form})
@@ -275,13 +279,13 @@ def admindashboard(request):
     complains=Complain.objects.filter(receiver=admin)
     for c  in complains:
         if c.status == 'Pending':
-            to_email = c.sender.user.email
-            mail_subject = 'Status Changed'
-            message =  'Hey ' +c.sender.user.first_name+',\nYour complain was viewed by the concerned authority and will be addressed soon.\n\nYour complain details.\nComplain heading : '+c.complain_heading+'\nComplain content: '+c.complain_content
-            email = EmailMessage(
-                        mail_subject, message, to=[to_email]
-            )
-            email.send()
+            # to_email = c.sender.user.email
+            # mail_subject = 'Status Changed'
+            # message =  'Hey ' +c.sender.user.first_name+',\nYour complain was viewed by the concerned authority and will be addressed soon.\n\nYour complain details.\nComplain heading : '+c.complain_heading+'\nComplain content: '+c.complain_content
+            # email = EmailMessage(
+            #             mail_subject, message, to=[to_email]
+            # )
+            # email.send()
             c.status = 'Viewed'
             c.save() 
 
@@ -562,17 +566,17 @@ def adminComplainView(request,cid):
         complain.status = instance.status
         complain.date_resolved = date.today().strftime('%b %d, %Y')
         complain.save()
-        if complain.status == 'In Progress':
-            mail_subject = 'Complain in progress'
-            message =  'Hey ' +complain.sender.user.first_name+',\nYour complain is in progress and will be addressed very soon.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
-        else:   
-            mail_subject = 'Complain '+complain.status
-            message =  'Hey ' +complain.sender.user.first_name+',\nYour complain was '+complain.status+' by the concerned authority.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
-        to_email = complain.sender.user.email
-        email = EmailMessage(
-                    mail_subject, message, to=[to_email]
-        )
-        email.send()
+        # if complain.status == 'In Progress':
+        #     mail_subject = 'Complain in progress'
+        #     message =  'Hey ' +complain.sender.user.first_name+',\nYour complain is in progress and will be addressed very soon.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        # else:   
+        #     mail_subject = 'Complain '+complain.status
+        #     message =  'Hey ' +complain.sender.user.first_name+',\nYour complain was '+complain.status+' by the concerned authority.\n\nYour complain details.\nComplain heading : '+complain.complain_heading+'\nComplain content: '+complain.complain_content+'\nResponse provided: '+complain.response
+        # to_email = complain.sender.user.email
+        # email = EmailMessage(
+        #             mail_subject, message, to=[to_email]
+        # )
+        # email.send()
         messages.info(request, f'Status changed successfully!')
         if request.user.admin.designation == 'Principal':
             return redirect('principaldashboard')
@@ -816,10 +820,10 @@ def issue_warning(request, myid):
         admin = Admin.objects.get(user = myid)
         mail_subject = 'Warning'
         message = 'This email has been sent to you to bring in to your notice that many complains have been written into your department. Please look after it.\n\nPrincipal.' 
-        to_email = admin.user.email
-        email = EmailMessage(
-                mail_subject, message, to=[to_email]
-        )
-        email.send()
+        # to_email = admin.user.email
+        # email = EmailMessage(
+        #         mail_subject, message, to=[to_email]
+        # )
+        # email.send()
         messages.info(request, 'Warning issued successfully!')
         return redirect('members_list')
